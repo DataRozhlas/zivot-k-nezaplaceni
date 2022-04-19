@@ -1,8 +1,8 @@
-# Web application `Život během pandemie`
+# Web application `Život po pandemii`
 
-Data visualization application for research `Život během pandemie` (by [PAQ Research](https://www.paqresearch.cz/)).
+Data visualization application for research `Život během pandemie` (by [PAQ Research](https://www.paqresearch.cz/) and [Czech Radio](https://data.irozhlas.cz/) ).
 
-[Život během pandemie](https://zivotbehempandemie.cz/)
+A sequel to [Život během pandemie](https://zivotbehempandemie.cz/)
 
 ![main](public/destabilizace.png)
 
