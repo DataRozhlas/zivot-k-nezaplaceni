@@ -197,7 +197,7 @@ export default function Layout(props) {
                     fontSize: "1.9rem",
                   }}
                 >
-                  život během pandemie
+                  život po životě během pandemie
                 </h1>
               </a>
             </Link>
