@@ -1,4 +1,4 @@
-# Web application `Život po pandemii`
+# Web application `Život k nezaplacení`
 
 Data visualization application for research `Život během pandemie` (by [PAQ Research](https://www.paqresearch.cz/) and [Czech Radio](https://data.irozhlas.cz/) ).
 
