@@ -54,6 +54,7 @@ export default function Layout(props) {
         margin={index === 0 ? "4em" : "2em"}
         title={item.title}
         items={item.items}
+        key={index}
       />
     ))
   ) : (
@@ -72,7 +73,7 @@ export default function Layout(props) {
   return (
     <>
       <Head>
-        <title>život během pandemie - {props.title}</title>
+        <title>Život k nezaplacení - {props.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
         <meta
@@ -82,7 +83,7 @@ export default function Layout(props) {
         />
         <meta
           property="og:title"
-          content="PAQ Research: Život během pandemie"
+          content="Český rozhlas a PAQ Research: Život k nezaplacení"
         />
         <meta name="twitter:card" content="summary" />
 
@@ -113,7 +114,7 @@ export default function Layout(props) {
       </Head>
       <nav className="top-menu">
         <Link href="[key]" as={`/${defaultUrl}`}>
-          <a style={navbarItemStylePadding}>Život během pandemie</a>
+          <a style={navbarItemStylePadding}>Život k nezaplacení</a>
         </Link>
         <Link href="/projekt">
           <a style={navbarItemStylePadding}>O projektu</a>
@@ -197,7 +198,7 @@ export default function Layout(props) {
                     fontSize: "1.9rem",
                   }}
                 >
-                  život po životě během pandemie
+                  Život k nezaplacení
                 </h1>
               </a>
             </Link>
