@@ -26,8 +26,8 @@ function ActiveLink({ children, href, style, activeStyle }) {
 }
 
 function MenuGroup({ margin, title, items }) {
-  const links = items.map((i) => (
-    <li>
+  const links = items.map((i, index) => (
+    <li key={index}>
       <ActiveLink
         href={`/${i.key}`}
         style={menuItemStyle}
@@ -64,6 +64,7 @@ export default function Layout(props) {
     ? props.menuItemsData[0].items[0].key
     : "";
   const onMenuButtonClick = (e) => {
+    e.preventDefault();
     const openMenuValue = openMenu || props.openMenu;
     setOpenMenu(!openMenuValue);
     if (props.setOpenMenu) {
@@ -137,7 +138,7 @@ export default function Layout(props) {
         >
           <Link href="[key]" as={`/${defaultUrl}`}>
             <a style={{ ...navbarItemStylePadding, display: "block" }}>
-              Život během pandemie
+              Život k nezaplacení
             </a>
           </Link>
           <div
@@ -170,7 +171,7 @@ export default function Layout(props) {
             </div>
           </div>
           <a
-            href="javascript:void(0);"
+            href="#"
             className="icon"
             onClick={onMenuButtonClick}
             style={{
