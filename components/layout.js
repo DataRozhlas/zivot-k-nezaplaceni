@@ -12,6 +12,7 @@ const navbarItemStylePadding = {
   ...navbarItemStyle,
   padding: "14px 16px",
 };
+const logoStyle = { cursor: "pointer" };
 
 function ActiveLink({ children, href, style, activeStyle }) {
   const router = useRouter();
@@ -207,20 +208,21 @@ export default function Layout(props) {
           <div className="main-menu">
             <nav>{menu}</nav>
             <div>
-              <a href="https://irozhlas.cz/">
+              <Link href="https://irozhlas.cz/">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Logo_iRozhlas.cz.svg/320px-Logo_iRozhlas.cz.svg.png"
                   width="90"
+                  style={logoStyle}
                 />
-              </a>
+              </Link>
               <hr />
               <p className="menu-footer">
                 Na projektu se podílí výzkumné společnosti{" "}
-                <a href="https://www.paqresearch.cz/">PAQ Research</a>,
+                <Link href="https://www.paqresearch.cz/">PAQ Research</Link>,
                 iniciativa{" "}
-                <a href="https://idea.cerge-ei.cz/anti-covid-19/">
+                <Link href="https://idea.cerge-ei.cz/anti-covid-19/">
                   IDEA AntiCovid
-                </a>{" "}
+                </Link>{" "}
                 a data sbírá agentura <a href="https://www.nms.cz/">NMS</a>.
               </p>
             </div>
