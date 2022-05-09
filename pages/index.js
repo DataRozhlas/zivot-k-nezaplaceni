@@ -1,9 +1,14 @@
 import Layout from "../components/layout";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
-  return (
-    <Layout>
-      <h1>Česko 2022 - život k nezaplacení</h1>
-    </Layout>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    // Always do navigations after the first render
+    router.push("/ekonomicke-dopady", undefined, { shallow: true });
+  }, []);
+
+  return <Layout></Layout>;
 }

@@ -1,4 +1,5 @@
 module.exports = {
+  // basePath: "/zivot",
   // async redirects() {
   //   return [
   //     {
