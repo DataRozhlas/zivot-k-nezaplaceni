@@ -202,16 +202,18 @@ export default function Layout(props) {
           <div className="main-menu">
             <nav>{menu}</nav>
             <div>
-              <Link href="https://irozhlas.cz/">
+              {/* <Link href="https://irozhlas.cz/">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Logo_iRozhlas.cz.svg/320px-Logo_iRozhlas.cz.svg.png"
                   width="90"
                   style={logoStyle}
                 />
-              </Link>
+              </Link> */}
               <hr />
               <p className="menu-footer">
-                Na projektu se podílí výzkumná společnost{" "}
+                Projekt{" "}
+                <Link href="https://portal.rozhlas.cz/">Českého rozhlasu</Link>{" "}
+                a výzkumné společnosti{" "}
                 <Link href="https://www.paqresearch.cz/">PAQ Research</Link>.
                 Data sbírá agentura <a href="https://www.nms.cz/">NMS</a>.
               </p>
