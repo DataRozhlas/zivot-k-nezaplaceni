@@ -121,12 +121,6 @@ export default function Layout(props) {
         <Link href="/projekt">
           <a style={navbarItemStylePadding}>O projektu</a>
         </Link>
-        <Link href="/studie">
-          <a style={navbarItemStylePadding}>Studie</a>
-        </Link>
-        <Link href="/kontakt">
-          <a style={navbarItemStylePadding}>Kontakt</a>
-        </Link>
       </nav>
       <nav className="top-menu-mobile">
         <div
@@ -217,13 +211,9 @@ export default function Layout(props) {
               </Link>
               <hr />
               <p className="menu-footer">
-                Na projektu se podílí výzkumné společnosti{" "}
-                <Link href="https://www.paqresearch.cz/">PAQ Research</Link>,
-                iniciativa{" "}
-                <Link href="https://idea.cerge-ei.cz/anti-covid-19/">
-                  IDEA AntiCovid
-                </Link>{" "}
-                a data sbírá agentura <a href="https://www.nms.cz/">NMS</a>.
+                Na projektu se podílí výzkumná společnost{" "}
+                <Link href="https://www.paqresearch.cz/">PAQ Research</Link>.
+                Data sbírá agentura <a href="https://www.nms.cz/">NMS</a>.
               </p>
             </div>
           </div>
