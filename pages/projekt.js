@@ -1,67 +1,282 @@
-import getMenu from '../components/menuBuilder'
-import Layout from '../components/layout';
+import getMenu from "../components/menuBuilder";
+import Layout from "../components/layout";
 
 export default function About({ menu }) {
-    return (
-        <Layout title="O projektu" menuItemsData={menu}>
-            <h1 style={{ marginBottom: "3rem" }}>O projektu</h1>
+  return (
+    <Layout title="O projektu" menuItemsData={menu}>
+      <h1 style={{ marginBottom: "3rem" }}>O projektu</h1>
 
-            <p>Data na této stránce pocházejí z výzkumu Život během pandemie. Jeho cílem je sledovat, jak se vyvíjí sociální
-            chování Čechů od začátku pandemie koronaviru, jak pandemie a související problémy dopadají na jejich život. Kromě
-            ekonomických dopadů výzkum zkoumá například vývoj duševního zdraví a některých společenských postojů. Shromažďuje data o míře kontaktů a typech aktivit, testování a symptomech nemoci, která mohou být využita i pro epidemiologické modelování.</p>
-            <p>Každé 2–3 týdny (počínaje březnem 2020) oslovujeme vzorek stejných respondentů – výsledný reprezentativní vzorek se v jednotlivých vlnách pohybuje mezi 2200 a 2600 rozhovory. Longitudinální metodika umožňuje zkoumat změnu chování či ekonomického stavu stejné skupiny domácností.</p>
-            <p>Na projektu se podílí výzkumníci ze společnosti PAQ Research (Daniel Prokop, Lucie Marková, Michaela Kudrnáčová) a
-            vědci z iniciativy IDEA AntiCovid (Jana Cahlíková, Vojtěch Bartoš, Michal Bauer, Julie Chytilová). Data sbírá
-            agentura NMS (člen SIMAR).</p>
+      <p>
+        Výzkumný projekt Českého rozhlasu a agentury PAQ Research{" "}
+        <strong>Česko 2022: Život k nezaplacení</strong> přímo navazuje na
+        panelový výzkum Život během pandemie, který zkoumal, jak se vyvíjelo
+        chování Čechů od začátku epidemie covid-19 a jak dopadala na jejich
+        životy.
+      </p>
+      <p>
+        Po epidemii čelí Česko dalším ekonomickým a geopolitickým výzvám. Jak se
+        zvyšují výdaje domácností na energie, bydlení a potraviny? Jak velkou
+        část rozpočtu jim to ubírá a kolik jim zbývá? Jaké domácnosti inflace
+        zasahuje? Kolik domácností se propadá do chudoby – nebo jim po zaplacení
+        nezbytných věcí zbývá minimum prostředků? Jakým domácnostem by měl stát
+        pomáhat a které si se situací poradí?
+      </p>
+      <p>
+        Právě to bude zjišťovat výzkum{" "}
+        <strong>Česko 2022: Život k nezaplacení</strong> až do podzimu tohoto
+        roku. V jeho průběhu budeme postupn2 ukazovat i další témata. Například,
+        jak Češi vnímají integraci lidí z Ukrajiny v různých oblastech života,
+        jak na ně ekonomická situace a nedaleká válka dopadá psychicky a zda se
+        chtějí před hrozícím podzimním návratem koronaviru nechat přeočkovat.
+      </p>
+      <p>
+        Každý měsíc počínaje květnem 2022 oslovujeme vzorek stejných respondentů
+        jako v předešlé studii. Některé časové řady o hospodaření a strategiích
+        domácností ovšem popisují situaci domácností již od března 2020.
+        Výsledný reprezentativní vzorek se v jednotlivých vlnách pohybuje mezi
+        1600 a 1800 rozhovory. Longitudinální (dlouhodobá) metodika umožňuje
+        zkoumat změnu chování či ekonomického stavu stejné skupiny domácností.
+      </p>
+      <p>
+        Na projektu se podílí výzkumníci ze společnosti PAQ Research (
+        <em>Daniel Prokop</em>, <em>Michaela Kudrnáčová</em>,{" "}
+        <em>Eliška Dvořáková</em>) a datoví experti z Českého rozhlasu. Data
+        sbírá agentura NMS (člen SIMAR). Původní studie Život během pandemie a
+        analýza výdajů za energie vznikaly ve spolupráci s think-tankem IDEA u
+        CERGE-EI.
+      </p>
+      <h2>Sběr dat</h2>
+      <p>
+        Dotazování probíhá na Českém národním panelu. Výzkum je reprezentativní
+        pro populaci ČR, ale kvůli metodice se ho mohou účastnit jen respondenti
+        s připojením k internetu. Výstupy pro starší generaci (55+) jsou zejména
+        u individuálních či postojových otázek pouze orientační.
+      </p>
 
-            <h2>Sběr dat</h2>
-            <p>Dotazování probíhá na Českém národním panelu. Výzkum je kvótně reprezentativní pro populaci ČR, ale kvůli metodice se ho mohou účastnit jen respondenti s připojením k internetu. Online metodiku sběru dat si vyžádala potřeba rychlého dotázání respondentů v krátkém časovém úseku, znemožnění osobních kontaktů či jejich preventivní omezování během pandemie i citlivý charakter dotazovaných témat, u nichž by přítomnost tazatele mohla vést ke zkreslení odpovědí. Výstupy pro starší generaci (55+) jsou kvůli online sběru pouze orientační.</p>
+      <h2>Reprezentativita</h2>
+      <p>
+        Náš vzorek kopíruje složení populace 18+ z hlediska:
+        <ul>
+          <li>
+            kraje a velikosti obce bydliště, pohlaví, vzdělání, věku respondenta
+          </li>
+          <li>pracovního statusu (před začátkem epidemie)</li>
+          <li>věku&nbsp;×&nbsp;pohlaví, věku&nbsp;×&nbsp;vzdělání</li>
+          <li>zdrojů topení u domácností</li>
+        </ul>
+      </p>
+      <p>
+        Pro možnost robustnějšího modelování epidemiologického chování jsou
+        nadhodnoceny rizikové kategorie měst nad 50 tisíc obyvatel. Pro
+        zpracování výsledků je tento „boost“ redukován vážením dat.
+      </p>
 
-            <h2>Reprezentativita</h2>
-            <p>Náš vzorek kopíruje složení populace 18+ z hlediska:
-                <ul>
-                    <li>kraje a velikosti obce bydliště, pohlaví, vzdělání, věku respondenta</li>
-                    <li>pracovního statusu (před začátkem epidemie), věku&nbsp;×&nbsp;pohlaví, věku&nbsp;×&nbsp;vzdělání</li>
-                </ul>
-            </p>
-            <p>Pro možnost robustnějšího modelování vztahu sociálních aktivit, protektivního chování a promořenosti jsou v
-            hrubém vzorku nadhodnoceny rizikové kategorie měst nad 50 tisíc obyvatel. Pro zpracování výsledků je tento
-            „boost“ redukován vážením dat.</p>
-            <p>Pro zajištění srovnatelnosti výsledků a dodržení stejné reprezentativní struktury (viz výše) usilujeme o vysokou retenci a rovněž dovažujeme data z druhé a další vlny mj. na typ vykonávané práce před začátkem epidemie. Původní příjmová
-            struktura ani další původní parametry respondentů se během vln významně nemění. Vývoj v datech tak není dán tím,
-            že by se měnilo složení respondentů – ale vývojem chování.</p>
+      <h2>Kontroly dat</h2>
+      <p>
+        Ve výzkumu kontrolujeme délku vyplňování dotazníku. Výzkum také obsahuje
+        kontrolní otázky, které odhalí, když respondent při vyplňování nedával
+        pozor.
+      </p>
 
-            <h2>Kontroly dat</h2>
-            <p>Ve výzkumu kontrolujeme délku vyplňování dotazníku. Výzkum také obsahuje kontrolní otázky, které odhalí, když
-            respondent při vyplňování nedával pozor.</p>
+      <h2>Financování</h2>
+      <p>
+        Tvorba výstupů projektu <strong>Česko 2022: Život k nezaplacení</strong>{" "}
+        je financována Českým rozhlasem. V minulosti bylo panelové šetření
+        financováno ze zdrojů Technologické agentury ČR, Max Planck Institute a
+        dalších donorských zdrojů.
+      </p>
+      <h2>Metodické poznámky</h2>
+      <p>
+        Údaje v grafech vychází z různých počtů respondentů. Následující tabulka
+        ukazuje statistickou chybu, která vychází z dané velikosti vzorku a liší
+        se také podle zastoupení odpovědi. Se vzrůstajícím počtem respondentů se
+        zvyšuje přesnost odhadu, tedy snižuje statistická chyba. Relativně
+        vysokou přesností se vyznačují odhady provedené alespoň na 500
+        respondentech, naopak odhady založené na vzorcích do přibližně 150 až
+        300 respondentů je třeba považovat za orientační. Zároveň se statistická
+        chyba odvíjí od procentuálního zastoupení odpovědí. Při stejné velikosti
+        vzorku je největší u výsledků, které se pohybují kolem 50 %, naopak
+        klesá jak u nižších (směrem k 0 %), tak u vyšších (směrem k 100 %).
+      </p>
+      <h4 style={{ textAlign: "center" }}>
+        Statistická chyba vycházející z velikosti vzorku a zastoupení odpovědí
+        (v procentních bodech)
+      </h4>
+      <div style={{ overflowX: "auto" }}>
+        <table
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+            textAlign: "center",
+          }}
+        >
+          <tbody>
+            <tr>
+              <th colspan={"9"}>Velikost vzorku (n)</th>
+            </tr>
+            <tr style={{ borderBottom: "1px solid black" }}>
+              {" "}
+              <th
+                rowspan={"9"}
+                style={{
+                  width: "100px",
+                  borderBottom: "1px solid transparent",
+                }}
+              >
+                Percentil (kolik respondentů uvádí odpověď)
+              </th>
+              <td style={{ borderBottom: "1px solid transparent" }}></td>
+              <td>150</td>
+              <td>300</td>
+              <td>500</td> <td>1000</td> <td>1200</td> <td>2400</td>{" "}
+              <td>3100</td>{" "}
+            </tr>{" "}
+            <tr>
+              <td
+                style={{
+                  borderRight: "1px solid black",
+                  textAlign: "right",
+                  padding: "0 5px",
+                }}
+              >
+                5&nbsp;%
+              </td>
+              <td>3,5</td>
+              <td>2,5</td>
+              <td>1,9</td>
+              <td>1,4</td>
+              <td>1,2</td>
+              <td>0,9</td>
+              <td>0,8</td>
+            </tr>{" "}
+            <tr>
+              <td
+                style={{
+                  borderRight: "1px solid black",
+                  textAlign: "right",
+                  padding: "0 5px",
+                }}
+              >
+                10&nbsp;%
+              </td>
+              <td>4,8</td>
+              <td>3,4</td>
+              <td>2,6</td>
+              <td>1,9</td>
+              <td>1,7</td>
+              <td>1,2</td>
+              <td>1,1</td>
+            </tr>{" "}
+            <tr>
+              <td
+                style={{
+                  borderRight: "1px solid black",
+                  textAlign: "right",
+                  padding: "0 5px",
+                }}
+              >
+                15&nbsp;%
+              </td>
+              <td>5,7</td>
+              <td>4,0</td>
+              <td>3,1</td>
+              <td>2,2</td>
+              <td>2,0</td>
+              <td>1,4</td>
+              <td>1,3</td>
+            </tr>{" "}
+            <tr>
+              <td
+                style={{
+                  borderRight: "1px solid black",
+                  textAlign: "right",
+                  padding: "0 5px",
+                }}
+              >
+                20&nbsp;%
+              </td>
+              <td>6,4</td>
+              <td>4,5</td>
+              <td>3,5</td>
+              <td>2,5</td>
+              <td>2,3</td>
+              <td>1,6</td>
+              <td>1,4</td>
+            </tr>{" "}
+            <tr>
+              <td
+                style={{
+                  borderRight: "1px solid black",
+                  textAlign: "right",
+                  padding: "0 5px",
+                }}
+              >
+                30&nbsp;%
+              </td>
+              <td>7,3</td>
+              <td>5,2</td>
+              <td>4,0</td>
+              <td>2,8</td>
+              <td>2,6</td>
+              <td>1,8</td>
+              <td>1,6</td>
+            </tr>{" "}
+            <tr>
+              <td
+                style={{
+                  borderRight: "1px solid black",
+                  textAlign: "right",
+                  padding: "0 5px",
+                }}
+              >
+                40&nbsp;%
+              </td>
+              <td>7,8</td>
+              <td>5,5</td>
+              <td>4,3</td>
+              <td>3,0</td>
+              <td>2,8</td>
+              <td>2,0</td>
+              <td>1,7</td>
+            </tr>{" "}
+            <tr>
+              <td
+                style={{
+                  borderRight: "1px solid black",
+                  textAlign: "right",
+                  padding: "0 5px",
+                }}
+              >
+                50&nbsp;%
+              </td>
+              <td>8,0</td>
+              <td>5,7</td>
+              <td>4,4</td>
+              <td>3,1</td>
+              <td>2,8</td>
+              <td>2,0</td>
+              <td>1,8</td>
+            </tr>{" "}
+          </tbody>
+        </table>
+      </div>
 
-            <h2>Financování</h2>
-            <p>Sběr dat je financován z následujících zdrojů:
-                <ul>
-                    <li>Max Planck Institute for Tax Law and Public Finance</li>
-                    <li>Akademie věd ČR (ERC-CZ/AV-B (ERC300851901))</li>
-                    <li>German Science Foundation CRC TRR 190</li>
-                </ul>
-            </p>
-            <p>V minulosti projekt podpořili Ondřej Nezdara, Michal Sirový, Člověk v tísni (sběr dat o distančním vzdělávání)</p>
-            <p>Tvorba tohoto dashboardu byla podpořena grantem TAČR ETA Mapování dopadů ekonomické krize a optimalizace systémů daní, dávek, exekucí a insolvencí pro zmírnění jejích nepříznivých vlivů (TL04000332).</p>
-
-            <p>Realizace sběru dat ve čtyřech vlnách výzkumu na konci roku 2020 a začátku roku 2021 a příprava dat pro epidemiologické modelování byla podpořena grantem TAČR ETA Město pro lidi, ne pro virus (TL04000282).</p>
-
-            <p>Sběr dat ve dvou vlnách výzkumu v květnu 2021 byl podpořen Centrem pro výzkum veřejného mínění (CVVM) a Českým sociálněvědním datovým archivem (ČSDA) Sociologického ústavu Akademie věd ČR, v. v. i.</p>
-
-            <p>
-                <a href="https://www.paqresearch.cz/"><img src="logo-paq.png" width="120" /></a>
-                <a href="https://idea.cerge-ei.cz/anti-covid-19/"><img src="idea.png" width="120" /></a>
-            </p>
-        </Layout>
-    )
+      <p>
+        <a href="https://www.paqresearch.cz/">
+          <img src="logo-paq.png" width="120" />
+        </a>
+        <a href="https://idea.cerge-ei.cz/anti-covid-19/">
+          <img src="idea.png" width="120" />
+        </a>
+      </p>
+    </Layout>
+  );
 }
 
 export async function getStaticProps(context) {
-    return {
-        props: {
-            menu: await getMenu()
-        }
-    };
+  return {
+    props: {
+      menu: await getMenu(),
+    },
+  };
 }
