@@ -77,10 +77,10 @@ export default function ChartWrapper({
       ? (i) => sethighlightedLineIndex(i)
       : (_) => {},
     highlightedLineIndex: highlightedLineIndex,
-    highlightingEnabled: dataProps.asLineChart,
+    highlightingEnabled:
+      dataProps.asLineChart && dataProps.total.lines.length > 1,
     lineStyles: dataProps.lineStyles,
   };
-
   const onHover = (x) => {
     if (x) {
       setAnnotation({ week: x.week, lineIndex: x.parentLine.key });
