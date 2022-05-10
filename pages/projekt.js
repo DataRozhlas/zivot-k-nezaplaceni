@@ -1,6 +1,6 @@
 import getMenu from "../components/menuBuilder";
 import Layout from "../components/layout";
-import Image from "next/image";
+import Image from "../components/Image";
 import Link from "next/link";
 import rozhlasLogo from "../public/logo/cro.png";
 import paqLogo from "../public/logo/paq.svg";
@@ -23,8 +23,6 @@ const logoStyle = {
   cursor: "pointer",
   margin: "1em",
 };
-
-console.log(rozhlasLogo);
 
 export default function About({ menu }) {
   return (

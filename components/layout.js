@@ -81,7 +81,7 @@ export default function Layout(props) {
         <meta
           key="share-image"
           property="og:image"
-          content="https://zivotbehempandemie.cz/destabilizace.png"
+          content="https://data.irozhlas.cz/zivot/ekonomicke-dopady.png"
         />
         <meta
           property="og:title"
@@ -100,7 +100,7 @@ export default function Layout(props) {
         {/* TODO Global site tag (gtag.js) - Google Analytics */}
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-177624987-1"
+          src="https://www.googletagmanager.com/gtag/js?id=GTM-KB3JR9L"
         ></script>
         <script
           dangerouslySetInnerHTML={{
@@ -109,8 +109,13 @@ export default function Layout(props) {
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
 
-                    gtag('config', 'UA-177624987-1');
+                    gtag('config', 'GTM-KB3JR9L');
                 `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer.push({"configGemiusId": ".AGbkHxOpDTrDJT4gULQydTa38O1ESN_CYN2Y62XFGz.z7"});`,
           }}
         />
       </Head>
