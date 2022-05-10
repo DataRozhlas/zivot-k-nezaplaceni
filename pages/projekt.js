@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import Image from "next/image";
 import Link from "next/link";
 import rozhlasLogo from "../public/logo/cro.png";
-import paqLogo from "../public/logo/paq.png";
+import paqLogo from "../public/logo/paq.svg";
 import radiozurnalLogo from "../public/logo/radiozurnal.png";
 import plusLogo from "../public/logo/plus.png";
 import irozhlasLogo from "../public/logo/irozhlas.png";
@@ -289,11 +289,7 @@ export default function About({ menu }) {
         </Link>
         <Link href="https://www.paqresearch.cz/">
           <div style={logoStyle}>
-            <Image
-              src={paqLogo}
-              height={29}
-              width={(paqLogo.width * 29) / paqLogo.height}
-            ></Image>
+            <Image src={paqLogo} height={29} width={47.7}></Image>
           </div>
         </Link>
         <Link href="https://radiozurnal.rozhlas.cz/">
