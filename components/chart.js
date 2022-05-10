@@ -102,7 +102,7 @@ function getXAxis(props, ticks) {
   return {
     orient: "bottom",
     showOutboundTickLines: true,
-    ticks: props.weeks > 30 ? props.weeks / 2 : props.weeks,
+    ticks: props.weeks > 30 ? props.weeks / 4 : props.weeks,
     tickFormat: getTickValue,
     tickLineGenerator: ({ xy }) => <TickLine xy={xy} />,
   };
