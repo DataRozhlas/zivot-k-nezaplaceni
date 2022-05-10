@@ -1,11 +1,35 @@
 import getMenu from "../components/menuBuilder";
 import Layout from "../components/layout";
+import Image from "next/image";
+import Link from "next/link";
+import rozhlasLogo from "../public/logo/cro.png";
+import paqLogo from "../public/logo/paq.png";
+import radiozurnalLogo from "../public/logo/radiozurnal.png";
+import plusLogo from "../public/logo/plus.png";
+import irozhlasLogo from "../public/logo/irozhlas.png";
+import dvojkaLogo from "../public/logo/dvojka.png";
+import regionLogo from "../public/logo/region.png";
+import waveLogo from "../public/logo/wave.png";
+
+const logaStyle = {
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "space-around",
+  width: "100%",
+  marginTop: "3em",
+};
+
+const logoStyle = {
+  cursor: "pointer",
+  margin: "1em",
+};
+
+console.log(rozhlasLogo);
 
 export default function About({ menu }) {
   return (
     <Layout title="O projektu" menuItemsData={menu}>
       <h1 style={{ marginBottom: "3rem" }}>O projektu</h1>
-
       <p>
         Výzkumný projekt Českého rozhlasu a agentury PAQ Research{" "}
         <strong>Česko 2022: Život k nezaplacení</strong> přímo navazuje na
@@ -52,7 +76,6 @@ export default function About({ menu }) {
         s připojením k internetu. Výstupy pro starší generaci (55+) jsou zejména
         u individuálních či postojových otázek pouze orientační.
       </p>
-
       <h2>Reprezentativita</h2>
       <p>
         Náš vzorek kopíruje složení populace 18+ z hlediska:
@@ -70,14 +93,12 @@ export default function About({ menu }) {
         nadhodnoceny rizikové kategorie měst nad 50 tisíc obyvatel. Pro
         zpracování výsledků je tento „boost“ redukován vážením dat.
       </p>
-
       <h2>Kontroly dat</h2>
       <p>
         Ve výzkumu kontrolujeme délku vyplňování dotazníku. Výzkum také obsahuje
         kontrolní otázky, které odhalí, když respondent při vyplňování nedával
         pozor.
       </p>
-
       <h2>Financování</h2>
       <p>
         Tvorba výstupů projektu <strong>Česko 2022: Život k nezaplacení</strong>{" "}
@@ -260,15 +281,76 @@ export default function About({ menu }) {
           </tbody>
         </table>
       </div>
-
-      <p>
-        <a href="https://www.paqresearch.cz/">
-          <img src="logo-paq.png" width="120" />
-        </a>
-        <a href="https://idea.cerge-ei.cz/anti-covid-19/">
-          <img src="idea.png" width="120" />
-        </a>
-      </p>
+      <div style={logaStyle}>
+        <Link href="https://portal.rozhlas.cz/">
+          <div style={logoStyle}>
+            <Image style={logoStyle} src={rozhlasLogo}></Image>
+          </div>
+        </Link>
+        <Link href="https://www.paqresearch.cz/">
+          <div style={logoStyle}>
+            <Image
+              src={paqLogo}
+              height={29}
+              width={(paqLogo.width * 29) / paqLogo.height}
+            ></Image>
+          </div>
+        </Link>
+        <Link href="https://radiozurnal.rozhlas.cz/">
+          <div style={logoStyle}>
+            <Image
+              src={radiozurnalLogo}
+              height={29}
+              width={(radiozurnalLogo.width * 29) / radiozurnalLogo.height}
+            ></Image>
+          </div>
+        </Link>
+        <Link href="https://radiozurnal.rozhlas.cz/">
+          <div style={logoStyle}>
+            <Image
+              src={plusLogo}
+              height={29}
+              width={(plusLogo.width * 29) / plusLogo.height}
+            ></Image>
+          </div>
+        </Link>
+        <Link href="https://www.irozhlas.cz/">
+          <div style={logoStyle}>
+            <Image
+              src={irozhlasLogo}
+              height={irozhlasLogo.height}
+              width={irozhlasLogo.width}
+            ></Image>
+          </div>
+        </Link>
+        <Link href="https://region.rozhlas.cz/">
+          <div style={logoStyle}>
+            <Image
+              src={dvojkaLogo}
+              height={29}
+              width={(dvojkaLogo.width * 29) / dvojkaLogo.height}
+            ></Image>
+          </div>
+        </Link>
+        <Link href="https://region.rozhlas.cz/">
+          <div style={logoStyle}>
+            <Image
+              src={regionLogo}
+              height={29}
+              width={(regionLogo.width * 29) / regionLogo.height}
+            ></Image>
+          </div>
+        </Link>
+        <Link href="https://region.rozhlas.cz/">
+          <div style={logoStyle}>
+            <Image
+              src={waveLogo}
+              height={29}
+              width={(waveLogo.width * 29) / waveLogo.height}
+            ></Image>
+          </div>
+        </Link>
+      </div>
     </Layout>
   );
 }
