@@ -24,6 +24,10 @@ const logoStyle = {
   margin: "1em",
 };
 
+const linkStyle = {
+  textDecorationLine: "underline",
+};
+
 export default function About({ menu }) {
   return (
     <Layout title="O projektu" menuItemsData={menu}>
@@ -31,9 +35,12 @@ export default function About({ menu }) {
       <p>
         Výzkumný projekt Českého rozhlasu a agentury PAQ Research{" "}
         <strong>Česko 2022: Život k nezaplacení</strong> přímo navazuje na
-        panelový výzkum Život během pandemie, který zkoumal, jak se vyvíjelo
-        chování Čechů od začátku epidemie covid-19 a jak dopadala na jejich
-        životy.
+        panelový výzkum{" "}
+        <a href="https://zivotbehempandemie.cz/" style={linkStyle}>
+          Život během pandemie
+        </a>
+        , který zkoumal, jak se vyvíjelo chování Čechů od začátku epidemie
+        covid-19 a jak dopadala na jejich životy.
       </p>
       <p>
         Po epidemii čelí Česko dalším ekonomickým a geopolitickým výzvám. Jak se
