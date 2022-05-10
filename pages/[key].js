@@ -42,7 +42,7 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
         <meta
           key="share-image"
           property="og:image"
-          content={`https://zivotbehempandemie.cz/${texts.pageData.shareImage}.png`}
+          content={`https://data.irozhlas.cz/zivot/${texts.pageData.shareImage}.png`}
         />
         <meta property="og:description" content={title} />
       </Head>
