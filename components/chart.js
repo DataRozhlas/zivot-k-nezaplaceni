@@ -249,7 +249,7 @@ function Chart({
     const averageTickLength =
       dataProps.ticks.map((t) => shortTick(t).length).reduce((a, b) => a + b) /
       dataProps.ticks.length;
-    const maxCount = width / (averageTickLength * 20);
+    const maxCount = width / (averageTickLength * 5);
     const ticks = Math.min(dataProps.weeks, Math.round(maxCount));
     setTicks(ticks);
   });
