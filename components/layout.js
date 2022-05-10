@@ -152,16 +152,6 @@ export default function Layout(props) {
                     <a style={navbarItemStyle}>O projektu</a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/studie">
-                    <a style={navbarItemStyle}>Studie</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/kontakt">
-                    <a style={navbarItemStyle}>Kontakt</a>
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>
