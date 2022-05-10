@@ -90,7 +90,7 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
       </div>
 
       <div id="stories" className="blog">
-        <h2>Co můžeme v datech pozorovat?</h2>
+        {/* <h2>Co můžeme v datech pozorovat?</h2> */}
         {texts.stories.map((s, i) => (
           <div className="story" key={`story-${i}}`}>
             <p className="story-title">{s.title}</p>
