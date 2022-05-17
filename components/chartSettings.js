@@ -21,7 +21,7 @@ function GroupButton({ currentGroup, group, index, onChange }) {
         className="noselect"
       >
         <img
-          src={`category-images/${group.image}`}
+          src={`../category-images/${group.image}`}
           width="60"
           style={{ margin: "0 auto", opacity: 0.4 }}
         />
@@ -148,7 +148,7 @@ function TwitterButton({ title, url }) {
       target="_blank"
       className="share-button"
     >
-      <img src="share-buttons/twitter-icon.svg" />
+      <img src="../share-buttons/twitter-icon.svg" />
     </a>
   );
 }
@@ -160,7 +160,7 @@ function FacebookButton({ url }) {
       target="_blank"
       className="share-button"
     >
-      <img src="share-buttons/facebook-icon.svg" />
+      <img src="../share-buttons/facebook-icon.svg" />
     </a>
   );
 }
@@ -172,7 +172,7 @@ function LinkedinButton({ url }) {
       target="_blank"
       className="share-button"
     >
-      <img src="share-buttons/linked-in-icon.svg" />
+      <img src="../share-buttons/linked-in-icon.svg" />
     </a>
   );
 }
@@ -220,7 +220,7 @@ export default function ChartSettings({
   onFilterChange,
 }) {
   const router = useRouter();
-  const url = `https://data.irozhlas.cz/zivot${router.asPath}.html`;
+  const url = `https://data.irozhlas.cz/zivot${router.asPath}/`;
   return (
     <>
       <div className="chart-settings">
