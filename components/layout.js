@@ -109,25 +109,7 @@ export default function Layout(props) {
           href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap"
           rel="stylesheet"
         />
-        {/* TODO Global site tag (gtag.js) - Google Analytics */}
         {/* <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=GTM-KB3JR9L"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-
-                    gtag('config', 'GTM-KB3JR9L');
-                `,
-          }}
-        />
-
-        */}
-        <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -141,7 +123,7 @@ export default function Layout(props) {
             __html: `window.dataLayer.push({"configGemiusId": ".AGbkHxOpDTrDJT4gULQydTa38O1ESN_CYN2Y62XFGz.z7"});
             `,
           }}
-        />
+        /> */}
       </Head>
       <nav className="top-menu">
         <Link href="[key]" as={`/${defaultUrl}.html`}>
