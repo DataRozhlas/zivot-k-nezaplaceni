@@ -12,12 +12,3 @@ export default function Home() {
 
   return <Layout></Layout>;
 }
-
-export async function getStaticProps() {
-  return {
-    redirect: {
-      destination: "/ekonomicke-dopady/",
-      permanent: true,
-    },
-  };
-}
