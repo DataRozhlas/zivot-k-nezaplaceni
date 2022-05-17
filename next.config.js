@@ -1,5 +1,5 @@
 module.exports = {
-  basePath: "/zivot",
+  basePath: "/zivot-k-nezaplaceni/zivot",
   images: {
     loader: "custom",
   },
