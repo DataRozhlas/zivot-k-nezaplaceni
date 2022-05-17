@@ -47,17 +47,17 @@ function MenuGroup({ margin, title, items }) {
 }
 
 export default function Layout(props) {
-  useEffect(() => {
-    if (
-      window.location.href.endsWith("zivot") ||
-      window.location.href.endsWith("zivot/")
-    ) {
-      window.location.href =
-        "https://data.irozhlas.cz/zivot/ekonomicke-dopady.html";
-    } else if (!window.location.href.endsWith(".html")) {
-      window.location.href += ".html";
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (
+  //     window.location.href.endsWith("zivot") ||
+  //     window.location.href.endsWith("zivot/")
+  //   ) {
+  //     window.location.href =
+  //       "https://data.irozhlas.cz/zivot/ekonomicke-dopady.html";
+  //   } else if (!window.location.href.endsWith(".html")) {
+  //     window.location.href += ".html";
+  //   }
+  // }, []);
 
   const [openMenu, setOpenMenu] = useState(false);
 

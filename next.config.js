@@ -3,7 +3,7 @@ module.exports = {
   images: {
     loader: "custom",
   },
-  // trailingSlash: true,
+  trailingSlash: true,
   // async redirects() {
   //   return [
   //     {
