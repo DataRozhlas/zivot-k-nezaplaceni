@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const menuItemStyle = { color: "#7C8A92" };
 const activeMenuItemStyle = { fontWeight: "bold" };
@@ -47,6 +47,18 @@ function MenuGroup({ margin, title, items }) {
 }
 
 export default function Layout(props) {
+  useEffect(() => {
+    if (
+      window.location.href.endsWith("zivot") ||
+      window.location.href.endsWith("zivot/")
+    ) {
+      window.location.href =
+        "https://data.irozhlas.cz/zivot/ekonomicke-dopady.html";
+    } else if (!window.location.href.endsWith(".html")) {
+      window.location.href += ".html";
+    }
+  }, []);
+
   const [openMenu, setOpenMenu] = useState(false);
 
   const menu = props.menuItemsData ? (
@@ -98,7 +110,7 @@ export default function Layout(props) {
           rel="stylesheet"
         />
         {/* TODO Global site tag (gtag.js) - Google Analytics */}
-        <script
+        {/* <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=GTM-KB3JR9L"
         ></script>
@@ -113,14 +125,26 @@ export default function Layout(props) {
                 `,
           }}
         />
+
+        */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer.push({"configGemiusId": ".AGbkHxOpDTrDJT4gULQydTa38O1ESN_CYN2Y62XFGz.z7"});`,
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-KB3JR9L');`,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer.push({"configGemiusId": ".AGbkHxOpDTrDJT4gULQydTa38O1ESN_CYN2Y62XFGz.z7"});
+            `,
           }}
         />
       </Head>
       <nav className="top-menu">
-        <Link href="[key]" as={`/${defaultUrl}`}>
+        <Link href="[key]" as={`/${defaultUrl}.html`}>
           <a style={navbarItemStylePadding}>Život k nezaplacení</a>
         </Link>
         <Link href="/projekt">
@@ -136,7 +160,7 @@ export default function Layout(props) {
             zIndex: 10,
           }}
         >
-          <Link href="[key]" as={`/${defaultUrl}`}>
+          <Link href="[key]" as={`/${defaultUrl}.html`}>
             <a style={{ ...navbarItemStylePadding, display: "block" }}>
               Život k nezaplacení
             </a>
@@ -180,7 +204,7 @@ export default function Layout(props) {
       <div className="main-wrapper">
         <div className="side-menu">
           <header>
-            <Link href="[key]" as={`/${defaultUrl}`}>
+            <Link href="[key]" as={`/${defaultUrl}.html`}>
               <a>
                 <h1
                   style={{
