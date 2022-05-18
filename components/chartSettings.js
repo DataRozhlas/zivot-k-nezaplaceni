@@ -36,7 +36,13 @@ function GroupButton({ currentGroup, group, index, onChange }) {
 function Tab({ title, onClick, isActive }) {
   return (
     <li className={"tab" + (isActive ? " tab-active" : "")}>
-      <a href="javascript:void(0);" onClick={(e) => onClick()}>
+      <a
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          onClick();
+        }}
+      >
         {title}
       </a>
     </li>

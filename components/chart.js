@@ -153,7 +153,7 @@ function generateAnnotations(props, dataLines, stacked) {
 function getAreaLineStyle(dataColors, i) {
   return {
     fill: dataColors[i],
-    fillOpacity: 1,
+    fillOpacity: "1",
   };
 }
 

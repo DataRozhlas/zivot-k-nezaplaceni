@@ -224,10 +224,11 @@ export default function Layout(props) {
         <div className="content-wrapper container">{props.children}</div>
         <div className="main-footer">
           <p className="menu-footer">
-            Na projektu se podílí výzkumné společnosti{" "}
-            <a href="https://www.paqresearch.cz/">PAQ Research</a>, iniciativa{" "}
-            <a href="https://idea.cerge-ei.cz/anti-covid-19/">IDEA AntiCovid</a>{" "}
-            a data sbírá agentura <a href="https://www.nms.cz/">NMS</a>.
+            Projekt{" "}
+            <Link href="https://portal.rozhlas.cz/">Českého rozhlasu</Link> a
+            výzkumné společnosti{" "}
+            <Link href="https://www.paqresearch.cz/">PAQ Research</Link>. Data
+            sbírá agentura <a href="https://www.nms.cz/">NMS</a>.
           </p>
         </div>
       </div>

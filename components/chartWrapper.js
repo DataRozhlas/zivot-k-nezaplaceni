@@ -1,5 +1,5 @@
 import Chart from "../components/chart";
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import Legend from "../components/legend";
 
 function getSmallChartProps(
@@ -126,7 +126,7 @@ export default function ChartWrapper({
     </div>
   );
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     function handleResize() {
       var chart = document.getElementsByClassName("chart-content")[0];
       setHeight(chart.offsetWidth * 0.6);

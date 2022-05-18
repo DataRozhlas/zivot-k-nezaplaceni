@@ -50,9 +50,12 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
 
       <p className="select-topic">
         <a
-          href="javascript:void(0);"
+          href="#"
           className="arrow-button"
-          onClick={(e) => setOpenMenu(!openMenu)}
+          onClick={(e) => {
+            e.preventDefault();
+            setOpenMenu(!openMenu);
+          }}
         >
           Vybrat jiné téma
         </a>
