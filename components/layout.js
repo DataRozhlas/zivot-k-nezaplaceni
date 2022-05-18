@@ -46,6 +46,13 @@ function MenuGroup({ margin, title, items }) {
 
 export default function Layout(props) {
   const [openMenu, setOpenMenu] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.pathname === "/") {
+      router.push("/ekonomicke-dopady");
+    }
+  }, []);
 
   const menu = props.menuItemsData ? (
     props.menuItemsData.map((item, index) => (
@@ -62,6 +69,7 @@ export default function Layout(props) {
   const defaultUrl = props.menuItemsData
     ? props.menuItemsData[0].items[0].key
     : "";
+
   const onMenuButtonClick = (e) => {
     e.preventDefault();
     const openMenuValue = openMenu || props.openMenu;
