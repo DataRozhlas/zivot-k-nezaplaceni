@@ -2,31 +2,8 @@ import getMenu from "../components/menuBuilder";
 import Layout from "../components/layout";
 import Image from "../components/Image";
 import Link from "next/link";
-import rozhlasLogo from "../public/logo/cro.png";
-import paqLogo from "../public/logo/paq.svg";
-import radiozurnalLogo from "../public/logo/radiozurnal.png";
-import plusLogo from "../public/logo/plus.png";
-import irozhlasLogo from "../public/logo/irozhlas.png";
-import dvojkaLogo from "../public/logo/dvojka.png";
-import regionLogo from "../public/logo/region.png";
-import waveLogo from "../public/logo/wave.png";
 
-const logaStyle = {
-  display: "flex",
-  flexWrap: "wrap",
-  justifyContent: "space-around",
-  width: "100%",
-  marginTop: "3em",
-};
-
-const logoStyle = {
-  cursor: "pointer",
-  margin: "1em",
-};
-
-const linkStyle = {
-  textDecorationLine: "underline",
-};
+import styles from "../styles/Projekt.module.css";
 
 export default function About({ menu }) {
   return (
@@ -36,7 +13,7 @@ export default function About({ menu }) {
         Výzkumný projekt Českého rozhlasu a agentury PAQ Research{" "}
         <strong>Česko 2022: Život k nezaplacení</strong> přímo navazuje na
         panelový výzkum{" "}
-        <a href="https://zivotbehempandemie.cz/" style={linkStyle}>
+        <a href="https://zivotbehempandemie.cz/" className={styles.odkaz}>
           Život během pandemie
         </a>
         , který zkoumal, jak se vyvíjelo chování Čechů od začátku epidemie
@@ -82,17 +59,16 @@ export default function About({ menu }) {
         u individuálních či postojových otázek pouze orientační.
       </p>
       <h2>Reprezentativita</h2>
-      <p>
-        Náš vzorek kopíruje složení populace 18+ z hlediska:
-        <ul>
-          <li>
-            kraje a velikosti obce bydliště, pohlaví, vzdělání, věku respondenta
-          </li>
-          <li>pracovního statusu (před začátkem epidemie)</li>
-          <li>věku&nbsp;×&nbsp;pohlaví, věku&nbsp;×&nbsp;vzdělání</li>
-          <li>zdrojů topení u domácností</li>
-        </ul>
-      </p>
+      <p>Náš vzorek kopíruje složení populace 18+ z hlediska:</p>
+
+      <ul>
+        <li>
+          kraje a velikosti obce bydliště, pohlaví, vzdělání, věku respondenta
+        </li>
+        <li>pracovního statusu (před začátkem epidemie)</li>
+        <li>věku&nbsp;×&nbsp;pohlaví, věku&nbsp;×&nbsp;vzdělání</li>
+        <li>zdrojů topení u domácností</li>
+      </ul>
       <p>
         Pro možnost robustnějšího modelování epidemiologického chování jsou
         nadhodnoceny rizikové kategorie měst nad 50 tisíc obyvatel. Pro
@@ -124,7 +100,7 @@ export default function About({ menu }) {
         vzorku je největší u výsledků, které se pohybují kolem 50 %, naopak
         klesá jak u nižších (směrem k 0 %), tak u vyšších (směrem k 100 %).
       </p>
-      <h4 style={{ textAlign: "center" }}>
+      <h4 className={styles.stred}>
         Statistická chyba vycházející z velikosti vzorku a zastoupení odpovědí
         (v procentních bodech)
       </h4>
@@ -138,12 +114,11 @@ export default function About({ menu }) {
         >
           <tbody>
             <tr>
-              <th colspan={"9"}>Velikost vzorku (n)</th>
+              <th colSpan={"9"}>Velikost vzorku (n)</th>
             </tr>
             <tr style={{ borderBottom: "1px solid black" }}>
-              {" "}
               <th
-                rowspan={"9"}
+                rowSpan={"9"}
                 style={{
                   width: "100px",
                   borderBottom: "1px solid transparent",
@@ -154,9 +129,9 @@ export default function About({ menu }) {
               <td style={{ borderBottom: "1px solid transparent" }}></td>
               <td>150</td>
               <td>300</td>
-              <td>500</td> <td>1000</td> <td>1200</td> <td>2400</td>{" "}
-              <td>3100</td>{" "}
-            </tr>{" "}
+              <td>500</td> <td>1000</td> <td>1200</td> <td>2400</td>
+              <td>3100</td>
+            </tr>
             <tr>
               <td
                 style={{
@@ -174,7 +149,7 @@ export default function About({ menu }) {
               <td>1,2</td>
               <td>0,9</td>
               <td>0,8</td>
-            </tr>{" "}
+            </tr>
             <tr>
               <td
                 style={{
@@ -192,7 +167,7 @@ export default function About({ menu }) {
               <td>1,7</td>
               <td>1,2</td>
               <td>1,1</td>
-            </tr>{" "}
+            </tr>
             <tr>
               <td
                 style={{
@@ -210,7 +185,7 @@ export default function About({ menu }) {
               <td>2,0</td>
               <td>1,4</td>
               <td>1,3</td>
-            </tr>{" "}
+            </tr>
             <tr>
               <td
                 style={{
@@ -228,7 +203,7 @@ export default function About({ menu }) {
               <td>2,3</td>
               <td>1,6</td>
               <td>1,4</td>
-            </tr>{" "}
+            </tr>
             <tr>
               <td
                 style={{
@@ -246,7 +221,7 @@ export default function About({ menu }) {
               <td>2,6</td>
               <td>1,8</td>
               <td>1,6</td>
-            </tr>{" "}
+            </tr>
             <tr>
               <td
                 style={{
@@ -264,7 +239,7 @@ export default function About({ menu }) {
               <td>2,8</td>
               <td>2,0</td>
               <td>1,7</td>
-            </tr>{" "}
+            </tr>
             <tr>
               <td
                 style={{
@@ -282,72 +257,85 @@ export default function About({ menu }) {
               <td>2,8</td>
               <td>2,0</td>
               <td>1,8</td>
-            </tr>{" "}
+            </tr>
           </tbody>
         </table>
       </div>
-      <div style={logaStyle}>
+      <div className={styles.loga}>
         <Link href="https://portal.rozhlas.cz/">
-          <div style={logoStyle}>
-            <Image style={logoStyle} src={rozhlasLogo}></Image>
+          <div className={styles.logo}>
+            <Image
+              src="../logo/cro.svg"
+              height={40}
+              width={120}
+              alt="logo"
+              unoptimized={true}
+            ></Image>
           </div>
         </Link>
         <Link href="https://www.paqresearch.cz/">
-          <div style={logoStyle}>
-            <Image src={paqLogo} height={29} width={47.7}></Image>
-          </div>
-        </Link>
-        <Link href="https://radiozurnal.rozhlas.cz/">
-          <div style={logoStyle}>
+          <div className={styles.logo}>
             <Image
-              src={radiozurnalLogo}
-              height={29}
-              width={(radiozurnalLogo.width * 29) / radiozurnalLogo.height}
+              src="../logo/paq.svg"
+              height={40}
+              width={120}
+              alt="logo"
+              unoptimized={true}
             ></Image>
           </div>
         </Link>
         <Link href="https://radiozurnal.rozhlas.cz/">
-          <div style={logoStyle}>
+          <div className={styles.logo}>
             <Image
-              src={plusLogo}
-              height={29}
-              width={(plusLogo.width * 29) / plusLogo.height}
+              src="../logo/radiozurnal.svg"
+              height={40}
+              width={120}
+              alt="logo"
+              unoptimized={true}
+            ></Image>
+          </div>
+        </Link>
+        <Link href="https://plus.rozhlas.cz/">
+          <div className={styles.logo}>
+            <Image
+              src="../logo/plus.svg"
+              height={40}
+              width={120}
+              alt="logo"
+              unoptimized={true}
             ></Image>
           </div>
         </Link>
         <Link href="https://www.irozhlas.cz/">
-          <div style={logoStyle}>
+          <div className={styles.logo}>
             <Image
-              src={irozhlasLogo}
-              height={irozhlasLogo.height}
-              width={irozhlasLogo.width}
+              src="../logo/irozhlas.svg"
+              height={30}
+              width={120}
+              alt="logo"
+              unoptimized={true}
             ></Image>
           </div>
         </Link>
-        <Link href="https://region.rozhlas.cz/">
-          <div style={logoStyle}>
+        <Link href="https://dvojka.rozhlas.cz/">
+          <div className={styles.logo}>
             <Image
-              src={dvojkaLogo}
-              height={29}
-              width={(dvojkaLogo.width * 29) / dvojkaLogo.height}
+              src="../logo/dvojka.svg"
+              height={40}
+              width={120}
+              alt="logo"
+              unoptimized={true}
             ></Image>
           </div>
         </Link>
-        <Link href="https://region.rozhlas.cz/">
-          <div style={logoStyle}>
+        <Link href="https://wave.rozhlas.cz/">
+          <div className={styles.logo}>
             <Image
-              src={regionLogo}
-              height={29}
-              width={(regionLogo.width * 29) / regionLogo.height}
-            ></Image>
-          </div>
-        </Link>
-        <Link href="https://region.rozhlas.cz/">
-          <div style={logoStyle}>
-            <Image
-              src={waveLogo}
-              height={29}
-              width={(waveLogo.width * 29) / waveLogo.height}
+              src="../logo/wave.svg"
+              height={40}
+              width={120}
+              alt="logo"
+              unoptimized={true}
             ></Image>
           </div>
         </Link>

@@ -12,8 +12,6 @@ const navbarItemStylePadding = {
   ...navbarItemStyle,
   padding: "14px 16px",
 };
-const logoStyle = { cursor: "pointer" };
-
 function ActiveLink({ children, href, style, activeStyle }) {
   const router = useRouter();
   const isActive =
@@ -47,18 +45,6 @@ function MenuGroup({ margin, title, items }) {
 }
 
 export default function Layout(props) {
-  // useEffect(() => {
-  //   if (
-  //     window.location.href.endsWith("zivot") ||
-  //     window.location.href.endsWith("zivot/")
-  //   ) {
-  //     window.location.href =
-  //       "https://data.irozhlas.cz/zivot/ekonomicke-dopady.html";
-  //   } else if (!window.location.href.endsWith(".html")) {
-  //     window.location.href += ".html";
-  //   }
-  // }, []);
-
   const [openMenu, setOpenMenu] = useState(false);
 
   const menu = props.menuItemsData ? (
@@ -126,7 +112,7 @@ export default function Layout(props) {
         /> */}
       </Head>
       <nav className="top-menu">
-        <Link href="[key]" as={`/${defaultUrl}.html`}>
+        <Link href="[key]" as={`/${defaultUrl}`}>
           <a style={navbarItemStylePadding}>Život k nezaplacení</a>
         </Link>
         <Link href="/projekt">
@@ -186,7 +172,7 @@ export default function Layout(props) {
       <div className="main-wrapper">
         <div className="side-menu">
           <header>
-            <Link href="[key]" as={`/${defaultUrl}.html`}>
+            <Link href="[key]" as={`/${defaultUrl}`}>
               <a>
                 <h1
                   style={{

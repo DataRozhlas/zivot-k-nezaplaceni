@@ -1,0 +1,19 @@
+.odkaz {
+    text-decoration-line: underline;
+}
+
+.stred {
+    text-align: center;
+}
+
+.loga {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 3em;
+}
+
+.logo {  cursor: pointer;
+        margin: 1em;
+}
