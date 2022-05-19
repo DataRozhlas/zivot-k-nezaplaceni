@@ -22,10 +22,12 @@ function GroupButton({ currentGroup, group, index, onChange }) {
       >
         <img
           src={`../category-images/${group.image}`}
-          width="60"
+          width="54"
           style={{ margin: "0 auto", opacity: 0.4 }}
         />
-        <span style={{ textAlign: "center", width: "100%" }}>
+        <span
+          style={{ textAlign: "center", width: "100%", lineHeight: "0.9rem" }}
+        >
           {group.title}
         </span>
       </button>
@@ -89,11 +91,11 @@ function GroupDropdown({ groups, onGroupChange, group }) {
       >
         <img
           src={`category-images/${group.image}`}
-          width="60"
+          width="54"
           style={{
             margin: "0 1em",
             opacity: 0.4,
-            width: "60px",
+            width: "54px",
             flexShrink: "0",
           }}
         />
@@ -115,7 +117,7 @@ function GroupDropdown({ groups, onGroupChange, group }) {
         <button style={itemStyle} onClick={(e) => setOpen(!open)}>
           <img
             src={`category-images/${selectedGroup.image}`}
-            width="60"
+            width="54"
             style={{ margin: "0 1em", opacity: 0.4 }}
           />
           <span style={{ margin: "auto 0" }}>{selectedGroup.title}</span>
