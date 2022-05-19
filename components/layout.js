@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import Image from "./Image";
 
 const menuItemStyle = { color: "#7C8A92" };
 const activeMenuItemStyle = { fontWeight: "bold" };
@@ -118,6 +119,28 @@ export default function Layout(props) {
             `,
           }}
         /> */}
+
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <nav className="top-menu">
         <Link href="[key]" as={`/${defaultUrl}`}>
@@ -182,17 +205,9 @@ export default function Layout(props) {
           <header>
             <Link href="[key]" as={`/${defaultUrl}`}>
               <a>
-                <h1
-                  style={{
-                    color: "#eec94e",
-                    lineHeight: "1.9rem",
-                    fontSize: "1.9rem",
-                  }}
-                >
-                  Život k nezaplacení
-                </h1>
+                <Image src="../logo/cesko22.svg" height={115} width={170} />
               </a>
-            </Link>
+            </Link>{" "}
           </header>
           <div className="main-menu">
             <nav>{menu}</nav>
