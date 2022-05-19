@@ -20,6 +20,7 @@ h1 {
 
 h2 {
     color: #273E47;
+    font-size: 1.1rem;
 }
 
 h3 {
@@ -366,6 +367,9 @@ ul {
     }
     .share-buttons {
         margin: 0;
+    }
+    p {
+        width: 80%;
     }
 }
 
