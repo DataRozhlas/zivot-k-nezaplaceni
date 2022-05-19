@@ -143,11 +143,21 @@ export default function Layout(props) {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <nav className="top-menu">
-        <Link href="[key]" as={`/${defaultUrl}`}>
-          <a style={navbarItemStylePadding}>Život k nezaplacení</a>
+        <Link href="https://irozhlas.cz/">
+          <a
+            style={{
+              position: "absolute",
+              left: "50%",
+              transform: "translateX(-50%)",
+            }}
+          >
+            <Image src="../logo/irozhlas.svg" height={50} width={120}></Image>
+          </a>
         </Link>
         <Link href="/projekt">
-          <a style={navbarItemStylePadding}>O projektu</a>
+          <a style={{ ...navbarItemStylePadding, marginLeft: "auto" }}>
+            O projektu
+          </a>
         </Link>
       </nav>
       <nav className="top-menu-mobile">
@@ -159,9 +169,9 @@ export default function Layout(props) {
             zIndex: 10,
           }}
         >
-          <Link href="[key]" as={`/${defaultUrl}.html`}>
-            <a style={{ ...navbarItemStylePadding, display: "block" }}>
-              Život k nezaplacení
+          <Link href="https://irozhlas.cz/">
+            <a style={{ display: "block", padding: "0px 16px" }}>
+              <Image src="../logo/irozhlas.svg" height={50} width={120}></Image>
             </a>
           </Link>
           <div
