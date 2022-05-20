@@ -104,7 +104,7 @@ export default function Layout(props) {
           href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
           rel="stylesheet"
         />
-        {/* <script
+        <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -118,7 +118,7 @@ export default function Layout(props) {
             __html: `window.dataLayer.push({"configGemiusId": ".AGbkHxOpDTrDJT4gULQydTa38O1ESN_CYN2Y62XFGz.z7"});
             `,
           }}
-        /> */}
+        />
 
         <link
           rel="apple-touch-icon"
@@ -215,7 +215,12 @@ export default function Layout(props) {
           <header>
             <Link href="[key]" as={`/${defaultUrl}`}>
               <a>
-                <Image src="../logo/cesko22.svg" height={115} width={170} />
+                <Image
+                  src="../logo/cesko22.svg"
+                  height={115}
+                  width={170}
+                  unoptimized={true}
+                />
               </a>
             </Link>{" "}
           </header>

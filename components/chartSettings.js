@@ -228,7 +228,7 @@ export default function ChartSettings({
   onFilterChange,
 }) {
   const router = useRouter();
-  const url = `https://data.irozhlas.cz/zivot${router.asPath}/`;
+  const url = `https://data.irozhlas.cz/zivot${router.asPath}`;
   return (
     <>
       <div className="chart-settings">
