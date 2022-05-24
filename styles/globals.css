@@ -262,6 +262,11 @@ font-size: 0.9rem;
 line-height: normal;
 }
 
+.legend > .legend-title {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
 @media only screen and (min-width: 720px) {
     h1 {
         font-size: 1.8rem;
