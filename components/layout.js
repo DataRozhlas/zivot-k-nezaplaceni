@@ -151,7 +151,12 @@ export default function Layout(props) {
               transform: "translateX(-50%)",
             }}
           >
-            <Image src="../logo/irozhlas.svg" height={50} width={120}></Image>
+            <Image
+              src="../logo/irozhlas.svg"
+              height={50}
+              width={120}
+              unoptimized={true}
+            ></Image>
           </a>
         </Link>
         <Link href="/projekt">
@@ -171,7 +176,12 @@ export default function Layout(props) {
         >
           <Link href="https://irozhlas.cz/">
             <a style={{ display: "block", padding: "0px 16px" }}>
-              <Image src="../logo/irozhlas.svg" height={50} width={120}></Image>
+              <Image
+                src="../logo/irozhlas.svg"
+                height={50}
+                width={120}
+                unoptimized={true}
+              ></Image>
             </a>
           </Link>
           <div
