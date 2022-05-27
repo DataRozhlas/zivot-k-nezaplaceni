@@ -134,7 +134,8 @@ export default function ChartWrapper({
 
     handleResize();
     window.addEventListener("resize", handleResize);
-  });
+  }, []);
+
   const content = total ? (
     <>{totalChart}</>
   ) : (
