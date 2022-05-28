@@ -90,7 +90,7 @@ function GroupDropdown({ groups, onGroupChange, group }) {
         }}
       >
         <img
-          src={`category-images/${group.image}`}
+          src={`../category-images/${group.image}`}
           width="54"
           style={{
             margin: "0 1em",
@@ -116,7 +116,7 @@ function GroupDropdown({ groups, onGroupChange, group }) {
       >
         <button style={itemStyle} onClick={(e) => setOpen(!open)}>
           <img
-            src={`category-images/${selectedGroup.image}`}
+            src={`../category-images/${selectedGroup.image}`}
             width="54"
             style={{ margin: "0 1em", opacity: 0.4 }}
           />
