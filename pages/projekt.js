@@ -83,9 +83,16 @@ export default function About({ menu }) {
       <h2>Financování</h2>
       <p>
         Tvorba výstupů projektu <strong>Česko 2022: Život k nezaplacení</strong>{" "}
-        je financována Českým rozhlasem. V minulosti bylo panelové šetření
-        financováno ze zdrojů Technologické agentury ČR, Max Planck Institute a
-        dalších donorských zdrojů.
+        je plně financována Českým rozhlasem, který rovněž financuje část sběru
+        a rozšíření o některé otázky zobrazované v dashboardu od května 2022.
+      </p>
+      <p>
+        Další zdroje na dotazování zbytku výzkumu a tvorbu předchozích výstupů
+        pocházejí zejména z programu Strategie AV21 Akademie věd ČR, v rámci
+        něhož také probíhá zajištění dat pro další výzkumné účely IDEA při
+        CERGE-EI. V minulosti bylo panelové šetření financováno i ze zdrojů
+        Technologické agentury ČR, Max Planck Institute a dalších donorských
+        zdrojů.
       </p>
       <h2>Metodické poznámky</h2>
       <p>
