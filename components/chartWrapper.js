@@ -17,7 +17,7 @@ function getSmallChartProps(
     colors: dataProps.colors,
     titles: dataProps.titles,
     yMin: 0,
-    yMax: dataProps.yMax ?? 100,
+    yMax: dataProps.yMaxSmall ?? dataProps.yMax ?? 100,
     showYAxis: true,
     values: values,
     size: [300, height],
@@ -73,15 +73,13 @@ export default function ChartWrapper({
       })
       .filter((t, i) => (filter ? filter.includes(i) : true)),
     title: legendTitle,
-    onHover: dataProps.asLineChart
-      ? (i) => sethighlightedLineIndex(i)
-      : (_) => {},
+    onHover: dataProps.asLineChart ? i => sethighlightedLineIndex(i) : _ => {},
     highlightedLineIndex: highlightedLineIndex,
     highlightingEnabled:
       dataProps.asLineChart && dataProps.total.lines.length > 1,
     lineStyles: dataProps.lineStyles,
   };
-  const onHover = (x) => {
+  const onHover = x => {
     if (x) {
       setAnnotation({ week: x.week, lineIndex: x.parentLine.key });
     } else {
