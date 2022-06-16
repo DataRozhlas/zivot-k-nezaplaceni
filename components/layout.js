@@ -51,7 +51,7 @@ export default function Layout(props) {
 
   useEffect(() => {
     if (router.pathname === "/") {
-      router.push("/dusevni-zdravi");
+      router.push("/vydaje-procenta");
     }
   }, []);
 
@@ -71,7 +71,7 @@ export default function Layout(props) {
     ? props.menuItemsData[0].items[0].key
     : "";
 
-  const onMenuButtonClick = (e) => {
+  const onMenuButtonClick = e => {
     e.preventDefault();
     const openMenuValue = openMenu || props.openMenu;
     setOpenMenu(!openMenuValue);
