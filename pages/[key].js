@@ -12,9 +12,14 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
   const [total, setTotal] = useState(true);
   const [group, setGroup] = useState(0);
   const [filter, setFilter] = useState(data.filters ? 0 : undefined);
+  const [showChart, setShowChart] = useState(false);
 
   const router = useRouter();
   const urlGroup = router.query.skupina;
+
+  useEffect(() => {
+    setShowChart(true);
+  }, []);
   useEffect(() => {
     const urlGroupIndex = urlGroup === undefined ? -1 : parseInt(urlGroup) - 1;
     if (urlGroupIndex >= 0 && urlGroupIndex < data.groups.length) {
@@ -24,11 +29,11 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
   }, [urlGroup]);
   const title = texts.pageData.title;
   const [openMenu, setOpenMenu] = useState(false);
-  const onTotalChange = (v) => {
+  const onTotalChange = v => {
     setTotal(v);
   };
 
-  const onGroupChange = (v) => {
+  const onGroupChange = v => {
     setGroup(v);
   };
   return (
@@ -52,7 +57,7 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
         <a
           href="#"
           className="arrow-button"
-          onClick={(e) => {
+          onClick={e => {
             e.preventDefault();
             setOpenMenu(!openMenu);
           }}
@@ -77,19 +82,21 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
           onFilterChange={setFilter}
         />
 
-        <ChartWrapper
-          key={`${chartKey + (filter ? `-${filter}` : "")}`}
-          dataProps={data}
-          group={group}
-          total={total}
-          filter={
-            data.filters && filter !== undefined
-              ? data.filters[filter].indexes
-              : undefined
-          }
-          legendTitle={texts.legendTitle}
-          legendDescriptions={texts.legendDescriptions}
-        />
+        {showChart && (
+          <ChartWrapper
+            key={`${chartKey + (filter ? `-${filter}` : "")}`}
+            dataProps={data}
+            group={group}
+            total={total}
+            filter={
+              data.filters && filter !== undefined
+                ? data.filters[filter].indexes
+                : undefined
+            }
+            legendTitle={texts.legendTitle}
+            legendDescriptions={texts.legendDescriptions}
+          />
+        )}
       </div>
 
       <div id="stories" className="blog">
@@ -129,7 +136,7 @@ export async function getStaticProps(context) {
   const structure = await getSourceData("structure.json");
   const icons = await getSourceData("icons.json");
   const currentIndex = structure.pages
-    .map((p) => p.key)
+    .map(p => p.key)
     .indexOf(context.params.key);
   const previous =
     currentIndex > 0
@@ -142,7 +149,7 @@ export async function getStaticProps(context) {
 
   for (let i = 0; i < data.groups.length; i++) {
     const group = data.groups[i];
-    const icon = icons.icons.filter((icon) => icon.label === group.title)[0];
+    const icon = icons.icons.filter(icon => icon.label === group.title)[0];
     group.image = icon ? icon.image : icons.defaultImage;
   }
 
@@ -166,7 +173,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const data = await getSourceData("structure.json");
   return {
-    paths: data.pages.map((p) => {
+    paths: data.pages.map(p => {
       return { params: { key: p.key } };
     }),
     fallback: false,
