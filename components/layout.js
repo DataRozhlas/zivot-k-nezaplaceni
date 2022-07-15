@@ -152,7 +152,7 @@ export default function Layout(props) {
             }}
           >
             <Image
-              src="../logo/irozhlas.svg"
+              src="https://data.irozhlas.cz/zivot/logo/irozhlas.svg"
               height={50}
               width={120}
               unoptimized={true}
@@ -177,7 +177,7 @@ export default function Layout(props) {
           <Link href="https://irozhlas.cz/">
             <a style={{ display: "block", padding: "0px 16px" }}>
               <Image
-                src="../logo/irozhlas.svg"
+                src="https://data.irozhlas.cz/zivot/logo/irozhlas.svg"
                 height={50}
                 width={120}
                 unoptimized={true}
