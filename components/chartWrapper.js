@@ -128,7 +128,6 @@ export default function ChartWrapper({
     function handleResize() {
       var chart = document.getElementsByClassName("chart-content")[0];
       setHeight(chart.offsetWidth * 0.6);
-      console.log("ahoj");
     }
 
     handleResize();
