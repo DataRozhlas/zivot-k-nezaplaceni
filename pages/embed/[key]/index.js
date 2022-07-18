@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import getSourceData from "../../../components/dataProvider";
 import ChartWrapper from "../../../components/chartWrapper";
 import { useState, useEffect } from "react";
+import { usePostMessageWithHeight } from "../../../components/hooks";
 
 const bigEmbed = ({ data, texts, chartKey }) => {
   const router = useRouter();
@@ -10,27 +11,27 @@ const bigEmbed = ({ data, texts, chartKey }) => {
   const [total, setTotal] = useState(true);
   const [group, setGroup] = useState(0);
   const [filter, setFilter] = useState(data.filters ? 0 : undefined);
-  const [showChart, setShowChart] = useState(false);
+  const { containerRef, postHeightMessage } = usePostMessageWithHeight(
+    `cro-paq-${chartKey}`
+  );
 
   useEffect(() => {
-    setShowChart(true);
+    postHeightMessage();
   }, []);
 
   return (
-    <>
-      <h1>{texts.pageData.title}</h1>
-      {showChart && (
-        <ChartWrapper
-          key={`${chartKey + (filter ? `-${filter}` : "")}`}
-          dataProps={data}
-          group={group}
-          total={total}
-          filter={filter}
-          legendTitle={texts.legendTitle}
-          legendDescriptions={texts.legendDescriptions}
-        />
-      )}
-    </>
+    <div ref={containerRef}>
+      <h1 style={{ marginTop: 0 }}>{texts.pageData.title}</h1>
+      <ChartWrapper
+        key={`${chartKey + (filter ? `-${filter}` : "")}`}
+        dataProps={data}
+        group={group}
+        total={total}
+        filter={filter}
+        legendDescriptions={texts.legendDescriptions}
+        legendTitle={texts.legendTitle}
+      />
+    </div>
   );
 };
 
