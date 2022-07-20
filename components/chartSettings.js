@@ -40,7 +40,7 @@ function Tab({ title, onClick, isActive }) {
     <li className={"tab" + (isActive ? " tab-active" : "")}>
       <a
         href="#"
-        onClick={(e) => {
+        onClick={e => {
           e.preventDefault();
           onClick();
         }}
@@ -60,7 +60,7 @@ function GroupButtons({ groups, onGroupChange, group }) {
           currentGroup={group}
           group={g}
           index={i}
-          onChange={(_) => onGroupChange(i)}
+          onChange={_ => onGroupChange(i)}
         />
       ))}
     </div>
@@ -84,7 +84,7 @@ function GroupDropdown({ groups, onGroupChange, group }) {
     return (
       <a
         style={itemStyle}
-        onClick={(e) => {
+        onClick={e => {
           onGroupChange(index);
           setOpen(false);
         }}
@@ -114,7 +114,7 @@ function GroupDropdown({ groups, onGroupChange, group }) {
           margin: "1em 0",
         }}
       >
-        <button style={itemStyle} onClick={(e) => setOpen(!open)}>
+        <button style={itemStyle} onClick={e => setOpen(!open)}>
           <img
             src={`../category-images/${selectedGroup.image}`}
             width="54"
@@ -185,6 +185,14 @@ function LinkedinButton({ url }) {
   );
 }
 
+function EmbedButton({ url }) {
+  return (
+    <a href={`${url}/embed`} target="_blank" className="share-button">
+      <img src="../share-buttons/embed-icon.svg" />
+    </a>
+  );
+}
+
 function Filter({ label, index, onChange, checked }) {
   return (
     <label>
@@ -210,7 +218,7 @@ function Filters({ filters, currentFilter, onFilterChange }) {
           checked={i === currentFilter}
           label={f.label}
           index={i}
-          onChange={(_) => onFilterChange(i)}
+          onChange={_ => onFilterChange(i)}
         />
       ))}
     </div>
@@ -250,6 +258,7 @@ export default function ChartSettings({
           <TwitterButton title={title} url={url} />
           <FacebookButton url={url} />
           <LinkedinButton url={url} />
+          <EmbedButton url={url} />
         </div>
       </div>
       {!total && (
