@@ -187,7 +187,7 @@ function LinkedinButton({ url }) {
 
 function EmbedButton({ url }) {
   return (
-    <a href={`${url}/embed`} target="_blank" className="share-button">
+    <a href={`${url}embed`} target="_blank" className="share-button">
       <img src="../share-buttons/embed-icon.svg" />
     </a>
   );

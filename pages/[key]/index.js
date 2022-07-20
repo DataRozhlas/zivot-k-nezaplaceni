@@ -1,11 +1,11 @@
-import getSourceData from "../components/dataProvider";
-import getMenu from "../components/menuBuilder";
-import ThemeNavigation from "../components/themeNavigation";
+import getSourceData from "../../components/dataProvider";
+import getMenu from "../../components/menuBuilder";
+import ThemeNavigation from "../../components/themeNavigation";
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import Layout from "../components/layout";
-import ChartWrapper from "../components/chartWrapper";
-import ChartSettings from "../components/chartSettings";
+import Layout from "../../components/layout";
+import ChartWrapper from "../../components/chartWrapper";
+import ChartSettings from "../../components/chartSettings";
 import { useRouter } from "next/router";
 
 export default function Page({ data, texts, menu, chartKey, navigation }) {
