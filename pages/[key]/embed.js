@@ -14,7 +14,7 @@ const EmbedPage = ({ data, texts, chartKey }) => {
     window.addEventListener("message", function (a) {
       if (void 0 !== a.data["cro-embed-height"])
         for (var e in a.data["cro-embed-height"])
-          if ("${id}" == e) {
+          if ({ id } == e) {
             var d = document.querySelector("${id}");
             d && (d.style.height = a.data["cro-embed-height"][e] + "px");
           }
