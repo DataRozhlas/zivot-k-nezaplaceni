@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import SharedTooltip from "../components/sharedTooltip";
 import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const ResponsiveXYFrame = dynamic(
   () => import("semiotic/lib/ResponsiveXYFrame"),
@@ -36,12 +37,12 @@ function getYAxis(props) {
       ticks: 0,
       baseline: false,
       showOutboundTickLines: false,
-      tickLineGenerator: (e) => null,
-      tickFormat: (e) => null,
+      tickLineGenerator: e => null,
+      tickFormat: e => null,
     };
   }
 
-  const getTickValue = (e) => {
+  const getTickValue = e => {
     if (e === props.yMin || e === props.yMax) {
       return e + (props.nonpercentage ? "" : " %");
     }
@@ -52,14 +53,14 @@ function getYAxis(props) {
     tickValues: yAxisTicks,
     baseline: false,
     showOutboundTickLines: false,
-    tickLineGenerator: ({ xy }) => <TickLine xy={xy} />,
+    tickLineGenerator: ({ xy }) => <TickLine xy={xy} key={uuidv4()} />,
     tickFormat: getTickValue,
     label: props.yLabel,
   };
 }
 
-const shortTick = (tick) => {
-  const parseTickToDate = (t) => {
+const shortTick = tick => {
+  const parseTickToDate = t => {
     const dateParts = t.split(". ");
     if (dateParts.length === 3)
       return new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
@@ -85,7 +86,7 @@ function getXAxis(props, ticks) {
   }
 
   const maxCount = props.ticks.length / mod;
-  const getTickValue = (e) => {
+  const getTickValue = e => {
     const index = e - props.firstWeek;
     const isFirst = index === 0;
     const isLast = index === props.ticks.length - 1;
@@ -104,7 +105,7 @@ function getXAxis(props, ticks) {
     showOutboundTickLines: true,
     ticks: props.weeks > 30 ? props.weeks / 4 : props.weeks,
     tickFormat: getTickValue,
-    tickLineGenerator: ({ xy }) => <TickLine xy={xy} />,
+    tickLineGenerator: ({ xy }) => <TickLine xy={xy} key={uuidv4()} />,
   };
 }
 
@@ -118,7 +119,7 @@ function generateAnnotations(props, dataLines, stacked) {
           y: stacked
             ? dataLines
                 .slice(i)
-                .map((pl) => pl[props.annotation.week - props.firstWeek])
+                .map(pl => pl[props.annotation.week - props.firstWeek])
                 .reduce((a, b) => a + b, 0)
             : l[props.annotation.week - props.firstWeek],
           value: l[props.annotation.week - props.firstWeek],
@@ -132,7 +133,7 @@ function generateAnnotations(props, dataLines, stacked) {
         y: stacked
           ? dataLines
               .slice(i)
-              .map((pl) => pl[props.annotation.week - props.firstWeek])
+              .map(pl => pl[props.annotation.week - props.firstWeek])
               .reduce((a, b) => a + b, 0)
           : dataLines[i][props.annotation.week - props.firstWeek],
       };
@@ -210,11 +211,11 @@ function Chart({
                 week: i + dataProps.firstWeek,
                 value: dataLines
                   .slice(li)
-                  .map((pl) => pl[i])
+                  .map(pl => pl[i])
                   .reduce((a, b) => a + b, 0),
               };
             })
-            .filter((c) => c.value !== null),
+            .filter(c => c.value !== null),
         };
       })
     : dataLines.map((l, li) => {
@@ -223,7 +224,7 @@ function Chart({
             .map((v, i) => {
               return { week: i + dataProps.firstWeek, value: l[i] };
             })
-            .filter((c) => c.value !== null),
+            .filter(c => c.value !== null),
         };
       });
 
@@ -247,7 +248,7 @@ function Chart({
     var chart = document.getElementsByClassName("chart-content")[0];
     const width = chart.offsetWidth;
     const averageTickLength =
-      dataProps.ticks.map((t) => shortTick(t).length).reduce((a, b) => a + b) /
+      dataProps.ticks.map(t => shortTick(t).length).reduce((a, b) => a + b) /
       dataProps.ticks.length;
     const maxCount = width / (averageTickLength * 5);
     const ticks = Math.min(dataProps.weeks, Math.round(maxCount));
@@ -276,9 +277,8 @@ function Chart({
     axes: [getYAxis(dataProps), getXAxis(dataProps, ticks)],
     hoverAnnotation: [{ type: "x", disable: ["connector", "note"] }],
     annotations: annotations,
-    customHoverBehavior: (x) =>
-      dataProps.onHover ? dataProps.onHover(x) : null,
-    tooltipContent: (d) => (
+    customHoverBehavior: x => (dataProps.onHover ? dataProps.onHover(x) : null),
+    tooltipContent: d => (
       <SharedTooltip
         firstWeek={dataProps.firstWeek}
         week={d.x}

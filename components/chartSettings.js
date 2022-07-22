@@ -219,6 +219,7 @@ function Filters({ filters, currentFilter, onFilterChange }) {
           label={f.label}
           index={i}
           onChange={_ => onFilterChange(i)}
+          key={i}
         />
       ))}
     </div>

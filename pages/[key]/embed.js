@@ -5,9 +5,9 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "../../styles/Embed.module.css";
 
-const EmbedPage = ({ data, texts, chartKey }) => {
+const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
   const router = useRouter();
-  const src = `https://data.irozhlas.cz${router.basePath}/embed/${router.query.key}`;
+  const src = `${baseUrl}${router.basePath}/embed/${router.query.key}`;
   const id = `cro-${chartKey}`;
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const EmbedPage = ({ data, texts, chartKey }) => {
       if (void 0 !== a.data["cro-embed-height"])
         for (var e in a.data["cro-embed-height"])
           if ({ id } == e) {
-            var d = document.querySelector("${id}");
+            var d = document.querySelector({ id });
             d && (d.style.height = a.data["cro-embed-height"][e] + "px");
           }
     });
@@ -93,11 +93,11 @@ const EmbedPage = ({ data, texts, chartKey }) => {
         </pre>
         <iframe
           src={src}
-          scrolling="no"
-          frameborder="0"
-          allowtransparency="true"
+          scrolling={"no"}
+          frameBorder={0}
+          allowtransparency={"true"}
           style={{ width: 0, minWidth: "100%!important" }}
-          height="730"
+          height={730}
           id={id}
         ></iframe>
       </div>
@@ -116,6 +116,8 @@ export async function getStaticProps(context) {
       data: data,
       texts: texts,
       chartKey: `${context.params.key}-chart`,
+      baseUrl:
+        process.env.NODE_ENV === "production" ? "https://data.irozhlas.cz" : "",
     },
   };
 }

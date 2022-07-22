@@ -6,6 +6,7 @@ import Head from "next/head";
 import { usePostMessageWithHeight } from "../../../components/hooks";
 
 const bigEmbed = ({ data, texts, chartKey }) => {
+  const [showChart, setShowChart] = useState(false);
   const [total, setTotal] = useState(true);
   const [group, setGroup] = useState(0);
   const [filter, setFilter] = useState(data.filters ? 0 : undefined);
@@ -14,6 +15,7 @@ const bigEmbed = ({ data, texts, chartKey }) => {
   );
 
   useEffect(() => {
+    setShowChart(true);
     postHeightMessage();
   }, []);
 
@@ -82,15 +84,17 @@ const bigEmbed = ({ data, texts, chartKey }) => {
       </Head>
       <div ref={containerRef} style={{ fontFamily: "'Fira Sans', sans-serif" }}>
         <h1 style={{ marginTop: 0 }}>{texts.pageData.title}</h1>
-        <ChartWrapper
-          key={`${chartKey + (filter ? `-${filter}` : "")}`}
-          dataProps={data}
-          group={group}
-          total={total}
-          filter={filter}
-          legendDescriptions={texts.legendDescriptions}
-          legendTitle={texts.legendTitle}
-        />
+        {showChart && (
+          <ChartWrapper
+            key={`${chartKey + (filter ? `-${filter}` : "")}`}
+            dataProps={data}
+            group={group}
+            total={total}
+            filter={filter}
+            legendDescriptions={texts.legendDescriptions}
+            legendTitle={texts.legendTitle}
+          />
+        )}
       </div>
     </>
   );

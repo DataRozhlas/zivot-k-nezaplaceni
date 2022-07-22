@@ -12,6 +12,7 @@ import ChartWrapper from "../../../components/chartWrapper";
 const smallEmbed = ({ group, data, texts, chartKey }) => {
   //const router = useRouter();
   //const { key, group } = router.query;
+  const [showChart, setShowChart] = useState(false);
   const [total, setTotal] = useState(false);
   //const [currentGroup, setcurrentGroup] = useState(group);
   const [filter, setFilter] = useState(data.filters ? 0 : undefined);
@@ -20,6 +21,7 @@ const smallEmbed = ({ group, data, texts, chartKey }) => {
   );
 
   useEffect(() => {
+    setShowChart(true);
     postHeightMessage();
   }, []);
 
@@ -88,15 +90,17 @@ const smallEmbed = ({ group, data, texts, chartKey }) => {
       </Head>
       <div ref={containerRef} style={{ fontFamily: "'Fira Sans', sans-serif" }}>
         <h1 style={{ marginTop: 0 }}>{texts.pageData.title}</h1>
-        <ChartWrapper
-          key={`${chartKey + (filter ? `-${filter}` : "")}`}
-          dataProps={data}
-          group={group}
-          total={total}
-          filter={filter}
-          legendDescriptions={texts.legendDescriptions}
-          legendTitle={texts.legendTitle}
-        />
+        {showChart && (
+          <ChartWrapper
+            key={`${chartKey + (filter ? `-${filter}` : "")}`}
+            dataProps={data}
+            group={group}
+            total={total}
+            filter={filter}
+            legendDescriptions={texts.legendDescriptions}
+            legendTitle={texts.legendTitle}
+          />
+        )}
       </div>
     </>
   );
