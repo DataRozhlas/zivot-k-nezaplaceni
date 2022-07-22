@@ -11,11 +11,14 @@ const bigEmbed = ({ data, texts, chartKey }) => {
   const [group, setGroup] = useState(0);
   const [filter, setFilter] = useState(data.filters ? 0 : undefined);
   const { containerRef, postHeightMessage } = usePostMessageWithHeight(
-    `cro-paq-${chartKey}`
+    `cro-${chartKey}`
   );
 
   useEffect(() => {
     setShowChart(true);
+  }, []);
+
+  useEffect(() => {
     postHeightMessage();
   }, []);
 

@@ -8,7 +8,8 @@ export const usePostMessageWithHeight = id => {
     if (containerRef.current) {
       const { height } = containerRef.current.getBoundingClientRect();
       if (window.parent) {
-        //console.log(height);
+        //        console.log(height);
+
         window.parent.postMessage(
           {
             "cro-embed-height": {

@@ -17,7 +17,7 @@ const smallEmbed = ({ group, data, texts, chartKey }) => {
   //const [currentGroup, setcurrentGroup] = useState(group);
   const [filter, setFilter] = useState(data.filters ? 0 : undefined);
   const { containerRef, postHeightMessage } = usePostMessageWithHeight(
-    `cro-paq-${chartKey}`
+    `cro-${chartKey}`
   );
 
   useEffect(() => {

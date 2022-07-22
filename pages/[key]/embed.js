@@ -13,11 +13,11 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
   useEffect(() => {
     window.addEventListener("message", function (a) {
       if (void 0 !== a.data["cro-embed-height"])
-        for (var e in a.data["cro-embed-height"])
-          if ({ id } == e) {
-            var d = document.querySelector({ id });
-            d && (d.style.height = a.data["cro-embed-height"][e] + "px");
-          }
+        for (var e in a.data["cro-embed-height"]);
+      if (id === e) {
+        var d = document.querySelector(`#${id}`);
+        d && (d.style.height = a.data["cro-embed-height"][e] + "px");
+      }
     });
   }, []);
 
@@ -88,7 +88,7 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
         <h1>Kód pro vložení grafu do vlastních stránek</h1>
         <pre className={styles.codeBox}>
           <code>
-            {`<iframe src="${src}" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="730" id="${id}"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["cro-embed-height"])for(var e in a.data["cro-embed-height"])if("${id}"==e){var d=document.querySelector("${id}");d&&(d.style.height=a.data["cro-embed-height"][e]+"px")}});</script>`}
+            {`<iframe src="${src}" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="730" id="${id}"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["cro-embed-height"])for(var e in a.data["cro-embed-height"])if("${id}"===e){var d=document.querySelector("#${id}");d&&(d.style.height=a.data["cro-embed-height"][e]+"px")}});</script>`}
           </code>
         </pre>
         <iframe
@@ -97,7 +97,7 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
           frameBorder={0}
           allowtransparency={"true"}
           style={{ width: 0, minWidth: "100%!important" }}
-          height={730}
+          height="730"
           id={id}
         ></iframe>
       </div>
