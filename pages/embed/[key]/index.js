@@ -1,5 +1,4 @@
 import React from "react";
-import { useRouter } from "next/router";
 import getSourceData from "../../../components/dataProvider";
 import ChartWrapper from "../../../components/chartWrapper";
 import { useState, useEffect } from "react";
@@ -7,8 +6,6 @@ import Head from "next/head";
 import { usePostMessageWithHeight } from "../../../components/hooks";
 
 const bigEmbed = ({ data, texts, chartKey }) => {
-  const router = useRouter();
-  const { key } = router.query;
   const [total, setTotal] = useState(true);
   const [group, setGroup] = useState(0);
   const [filter, setFilter] = useState(data.filters ? 0 : undefined);
