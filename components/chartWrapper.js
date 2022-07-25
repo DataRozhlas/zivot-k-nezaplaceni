@@ -59,17 +59,8 @@ export default function ChartWrapper({
   filter,
   legendTitle,
   legendDescriptions,
+  omit,
 }) {
-  const router = useRouter();
-  const toOmit = router.query.omit ?? [];
-  const [omit, setOmit] = useState([]);
-
-  useEffect(() => {
-    if (toOmit.length > 0) {
-      setOmit(toOmit.split(",").map(n => Number(n)));
-    }
-  }, [toOmit]);
-
   const [annotation, setAnnotation] = useState();
   const [height, setHeight] = useState(600);
   const [highlightedLineIndex, sethighlightedLineIndex] = useState();

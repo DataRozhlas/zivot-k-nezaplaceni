@@ -9,7 +9,14 @@ import { usePostMessageWithHeight } from "../../../components/hooks";
 
 const smallEmbed = ({ group, data, texts, chartKey }) => {
   const router = useRouter();
-  const { omit } = router.query;
+  const toOmit = router.query.omit ?? [];
+  const [omit, setOmit] = useState([]);
+
+  useEffect(() => {
+    if (toOmit.length > 0) {
+      setOmit(toOmit.split(",").map(n => Number(n)));
+    }
+  }, [toOmit]);
   const [showChart, setShowChart] = useState(false);
   const [total, setTotal] = useState(false);
   //const [currentGroup, setcurrentGroup] = useState(group);
@@ -104,6 +111,7 @@ const smallEmbed = ({ group, data, texts, chartKey }) => {
             filter={filter}
             legendDescriptions={texts.legendDescriptions}
             legendTitle={texts.legendTitle}
+            omit={omit}
           />
         </div>
       )}
