@@ -89,6 +89,7 @@ const bigEmbed = ({ data, texts, chartKey }) => {
         <h1 style={{ marginTop: 0 }}>{texts.pageData.title}</h1>
         {showChart && (
           <ChartWrapper
+            omit={[]}
             key={`${chartKey + (filter ? `-${filter}` : "")}`}
             dataProps={data}
             group={group}

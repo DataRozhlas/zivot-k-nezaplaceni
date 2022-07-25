@@ -84,6 +84,7 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
 
         {showChart && (
           <ChartWrapper
+            omit={[]}
             key={`${chartKey + (filter ? `-${filter}` : "")}`}
             dataProps={data}
             group={group}
