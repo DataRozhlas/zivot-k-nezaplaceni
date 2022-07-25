@@ -7,7 +7,9 @@ import styles from "../../styles/Embed.module.css";
 
 const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
   const router = useRouter();
-  const src = `${baseUrl}${router.basePath}/embed/${router.query.key}`;
+  const { query } = router;
+  const skupina = query.skupina ?? "";
+  const src = `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}`;
   const id = `cro-${chartKey}`;
 
   useEffect(() => {
@@ -86,6 +88,7 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
       </Head>
       <div className={styles.container}>
         <h1>Kód pro vložení grafu do vlastních stránek</h1>
+        <p>{query.skupina}</p>
         <pre className={styles.codeBox}>
           <code>
             {`<iframe src="${src}" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="730" id="${id}"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["cro-embed-height"])for(var e in a.data["cro-embed-height"])if("${id}"===e){var d=document.querySelector("#${id}");d&&(d.style.height=a.data["cro-embed-height"][e]+"px")}});</script>`}

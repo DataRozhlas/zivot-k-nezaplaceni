@@ -1,13 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import Head from "next/head";
-
-import { usePostMessageWithHeight } from "../../../components/hooks";
-
 import getAllGroups from "../../../components/getAllGroups";
 import getSourceData from "../../../components/dataProvider";
 import ChartWrapper from "../../../components/chartWrapper";
+import Head from "next/head";
+import { usePostMessageWithHeight } from "../../../components/hooks";
 
 const smallEmbed = ({ group, data, texts, chartKey }) => {
   //const router = useRouter();
@@ -22,6 +20,9 @@ const smallEmbed = ({ group, data, texts, chartKey }) => {
 
   useEffect(() => {
     setShowChart(true);
+  }, []);
+
+  useEffect(() => {
     postHeightMessage();
   }, []);
 

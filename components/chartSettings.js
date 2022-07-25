@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 function GroupButton({ currentGroup, group, index, onChange }) {
   return (
@@ -185,9 +186,20 @@ function LinkedinButton({ url }) {
   );
 }
 
-function EmbedButton({ url }) {
+function EmbedButton({ url, total, group }) {
+  if (total) {
+    return (
+      <a href={`${url}embed`} target="_blank" className="share-button">
+        <img src="../share-buttons/embed-icon.svg" />
+      </a>
+    );
+  }
   return (
-    <a href={`${url}embed`} target="_blank" className="share-button">
+    <a
+      href={`${url}embed?skupina=${group}`}
+      target="_blank"
+      className="share-button"
+    >
       <img src="../share-buttons/embed-icon.svg" />
     </a>
   );
@@ -237,7 +249,10 @@ export default function ChartSettings({
   onFilterChange,
 }) {
   const router = useRouter();
-  const url = `https://data.irozhlas.cz${router.basePath}${router.asPath}`;
+  const baseUrl =
+    process.env.NODE_ENV === "production" ? "https://data.irozhlas.cz" : "";
+
+  const url = `${baseUrl}${router.basePath}${router.asPath}`;
   return (
     <>
       <div className="chart-settings">
@@ -259,7 +274,7 @@ export default function ChartSettings({
           <TwitterButton title={title} url={url} />
           <FacebookButton url={url} />
           <LinkedinButton url={url} />
-          <EmbedButton url={url} />
+          <EmbedButton url={url} total={total} group={group} />
         </div>
       </div>
       {!total && (
