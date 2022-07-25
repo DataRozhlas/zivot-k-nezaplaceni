@@ -24,6 +24,7 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
       });
     setGroups(currentGroups);
     setSelectedGroups(currentGroups.map(g => g.index));
+    setSrc(`${baseUrl}${router.basePath}/embed/${query.key}/${skupina}`);
   }, [skupina]);
 
   useEffect(() => {
@@ -129,24 +130,26 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <div className={styles.container}>
-        <fieldset className={styles.checkboxContainer}>
-          <legend>Vyberte si kategorie, které chcete embedovat</legend>
-          {groups.map(g => {
-            const checked = selectedGroups.includes(g.index);
-            return (
-              <div>
-                <input
-                  type="checkbox"
-                  value={g.index}
-                  key={g.index}
-                  checked={checked}
-                  onChange={handleCheckboxClick}
-                />
-                {g.title}
-              </div>
-            );
-          })}
-        </fieldset>
+        {skupina.length > 0 && (
+          <fieldset className={styles.checkboxContainer}>
+            <legend>Vyberte si kategorie, které chcete embedovat</legend>
+            {groups.map(g => {
+              const checked = selectedGroups.includes(g.index);
+              return (
+                <div>
+                  <input
+                    type="checkbox"
+                    value={g.index}
+                    key={g.index}
+                    checked={checked}
+                    onChange={handleCheckboxClick}
+                  />
+                  {g.title}
+                </div>
+              );
+            })}
+          </fieldset>
+        )}
         <>
           <h1>Kód pro vložení grafu do vlastních stránek</h1>
 
