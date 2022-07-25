@@ -8,8 +8,8 @@ import Head from "next/head";
 import { usePostMessageWithHeight } from "../../../components/hooks";
 
 const smallEmbed = ({ group, data, texts, chartKey }) => {
-  //const router = useRouter();
-  //const { key, group } = router.query;
+  const router = useRouter();
+  const { omit } = router.query;
   const [showChart, setShowChart] = useState(false);
   const [total, setTotal] = useState(false);
   //const [currentGroup, setcurrentGroup] = useState(group);
@@ -89,9 +89,13 @@ const smallEmbed = ({ group, data, texts, chartKey }) => {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <div ref={containerRef} style={{ fontFamily: "'Fira Sans', sans-serif" }}>
-        <h1 style={{ marginTop: 0 }}>{texts.pageData.title}</h1>
-        {showChart && (
+      {showChart && (
+        <div
+          ref={containerRef}
+          style={{ fontFamily: "'Fira Sans', sans-serif" }}
+        >
+          <h1 style={{ marginTop: 0 }}>{texts.pageData.title}</h1>
+
           <ChartWrapper
             key={`${chartKey + (filter ? `-${filter}` : "")}`}
             dataProps={data}
@@ -101,8 +105,8 @@ const smallEmbed = ({ group, data, texts, chartKey }) => {
             legendDescriptions={texts.legendDescriptions}
             legendTitle={texts.legendTitle}
           />
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 };

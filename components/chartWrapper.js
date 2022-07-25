@@ -1,6 +1,7 @@
 import Chart from "../components/chart";
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Legend from "../components/legend";
+import { useRouter } from "next/router";
 
 function getSmallChartProps(
   dataProps,
@@ -59,9 +60,20 @@ export default function ChartWrapper({
   legendTitle,
   legendDescriptions,
 }) {
+  const router = useRouter();
+  const toOmit = router.query.omit ?? [];
+  const [omit, setOmit] = useState([]);
+
+  useEffect(() => {
+    if (toOmit.length > 0) {
+      setOmit(toOmit.split(",").map(n => Number(n)));
+    }
+  }, [toOmit]);
+
   const [annotation, setAnnotation] = useState();
   const [height, setHeight] = useState(600);
   const [highlightedLineIndex, sethighlightedLineIndex] = useState();
+
   const legend = {
     items: dataProps.titles
       .map((t, i) => {
@@ -88,29 +100,31 @@ export default function ChartWrapper({
   };
 
   const chartType = dataProps.asLineChart ? "line" : "stackedarea";
-  const charts = dataProps.groups[group].data.map((v, i) => {
-    return (
-      <div className="chart-content">
-        <Chart
-          key={`chart-${
-            i + (highlightedLineIndex ? `-${highlightedLineIndex}` : "")
-          }`}
-          lineStyles={dataProps.lineStyles}
-          dataProps={getSmallChartProps(
-            dataProps,
-            v,
-            i,
-            height,
-            annotation,
-            onHover
-          )}
-          chartType={chartType}
-          filter={filter}
-          highlightedLineIndex={highlightedLineIndex}
-        />
-      </div>
-    );
-  });
+  const charts = dataProps.groups[group].data
+    .map((v, i) => {
+      return (
+        <div className="chart-content">
+          <Chart
+            key={`chart-${
+              i + (highlightedLineIndex ? `-${highlightedLineIndex}` : "")
+            }`}
+            lineStyles={dataProps.lineStyles}
+            dataProps={getSmallChartProps(
+              dataProps,
+              v,
+              i,
+              height,
+              annotation,
+              onHover
+            )}
+            chartType={chartType}
+            filter={filter}
+            highlightedLineIndex={highlightedLineIndex}
+          />
+        </div>
+      );
+    })
+    .filter((chart, index) => !omit.includes(index)); // filter out omitted charts
   const totalChart = (
     <div className="chart-content">
       <Chart

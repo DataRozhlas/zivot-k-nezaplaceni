@@ -12,3 +12,9 @@
   white-space: break-spaces;
   word-break: break-word;
 }
+
+.checkboxContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

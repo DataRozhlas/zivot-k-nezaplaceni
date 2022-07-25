@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import getSourceData from "../../components/dataProvider";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -9,8 +9,36 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
   const router = useRouter();
   const { query } = router;
   const skupina = query.skupina ?? "";
-  const src = `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}`;
+  const [src, setSrc] = useState(
+    `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}`
+  );
   const id = `cro-${chartKey}`;
+  const [groups, setGroups] = useState([]);
+  const [selectedGroups, setSelectedGroups] = useState([0]);
+
+  useEffect(() => {
+    const currentGroups = data.groups
+      .find((g, i) => i === Number(skupina))
+      .data.map((g, i) => {
+        return { title: g.title, index: i };
+      });
+    setGroups(currentGroups);
+    setSelectedGroups(currentGroups.map(g => g.index));
+  }, [skupina]);
+
+  useEffect(() => {
+    if (selectedGroups.length === groups.length) {
+      setSrc(`${baseUrl}${router.basePath}/embed/${query.key}/${skupina}`);
+      return;
+    }
+    const omit = groups
+      .filter(g => !selectedGroups.includes(g.index))
+      .map(g => g.index);
+    const omitString = `?omit=${omit.toString()}`;
+    setSrc(
+      `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}${omitString}`
+    );
+  }, [selectedGroups]);
 
   useEffect(() => {
     window.addEventListener("message", function (a) {
@@ -22,6 +50,20 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
       }
     });
   }, []);
+
+  const handleCheckboxClick = e => {
+    const index = Number(e.target.value);
+    if (selectedGroups.includes(index)) {
+      if (selectedGroups.length === 1) {
+        return;
+      }
+      setSelectedGroups(prevState => {
+        return prevState.filter(el => el !== index);
+      });
+      return;
+    }
+    setSelectedGroups(prevState => [...prevState, index]);
+  };
 
   return (
     <>
@@ -87,21 +129,42 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <div className={styles.container}>
-        <h1>Kód pro vložení grafu do vlastních stránek</h1>
-        <pre className={styles.codeBox}>
-          <code>
-            {`<iframe src="${src}" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="730" id="${id}"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["cro-embed-height"])for(var e in a.data["cro-embed-height"])if("${id}"===e){var d=document.querySelector("#${id}");d&&(d.style.height=a.data["cro-embed-height"][e]+"px")}});</script>`}
-          </code>
-        </pre>
-        <iframe
-          src={src}
-          scrolling={"no"}
-          frameBorder={0}
-          allowtransparency={"true"}
-          style={{ width: 0, minWidth: "100%!important" }}
-          height="730"
-          id={id}
-        ></iframe>
+        <fieldset className={styles.checkboxContainer}>
+          <legend>Vyberte si kategorie, které chcete embedovat</legend>
+          {groups.map(g => {
+            const checked = selectedGroups.includes(g.index);
+            return (
+              <div>
+                <input
+                  type="checkbox"
+                  value={g.index}
+                  key={g.index}
+                  checked={checked}
+                  onChange={handleCheckboxClick}
+                />
+                {g.title}
+              </div>
+            );
+          })}
+        </fieldset>
+        <>
+          <h1>Kód pro vložení grafu do vlastních stránek</h1>
+
+          <pre className={styles.codeBox}>
+            <code>
+              {`<iframe src="${src}" scrolling="no" frameborder="0" allowtransparency="true" style="width: 0; min-width: 100% !important;" height="730" id="${id}"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["cro-embed-height"])for(var e in a.data["cro-embed-height"])if("${id}"===e){var d=document.querySelector("#${id}");d&&(d.style.height=a.data["cro-embed-height"][e]+"px")}});</script>`}
+            </code>
+          </pre>
+          <iframe
+            src={src}
+            scrolling={"no"}
+            frameBorder={0}
+            allowtransparency={"true"}
+            style={{ width: 0, minWidth: "100%!important" }}
+            height="730"
+            id={id}
+          ></iframe>
+        </>
       </div>
     </>
   );
