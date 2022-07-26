@@ -10,7 +10,9 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
   const { query } = router;
   const skupina = query.skupina ?? "";
   const [src, setSrc] = useState(
-    `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}`
+    `${baseUrl}${router.basePath}/embed/${query.key}/${
+      skupina.length > 0 ? `${skupina}/` : ""
+    }index.html`
   );
   const id = `cro-${chartKey}`;
   const [groups, setGroups] = useState([]);
@@ -25,14 +27,18 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
     setGroups(currentGroups);
     setSelectedGroups(currentGroups.map(g => g.index));
     setSrc(
-      `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}/index.html`
+      `${baseUrl}${router.basePath}/embed/${query.key}/${
+        skupina.length > 0 ? `${skupina}/` : ""
+      }index.html`
     );
   }, [skupina]);
 
   useEffect(() => {
     if (selectedGroups.length === groups.length) {
       setSrc(
-        `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}/index.html`
+        `${baseUrl}${router.basePath}/embed/${query.key}/${
+          skupina.length > 0 ? `${skupina}/` : ""
+        }index.html`
       );
       return;
     }
@@ -41,7 +47,9 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
       .map(g => g.index);
     const omitString = `?omit=${omit.toString()}`;
     setSrc(
-      `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}/index.html${omitString}`
+      `${baseUrl}${router.basePath}/embed/${query.key}/${
+        skupina.length > 0 ? `${skupina}/` : ""
+      }index.html${omitString}`
     );
   }, [selectedGroups]);
 
