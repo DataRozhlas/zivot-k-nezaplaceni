@@ -196,7 +196,7 @@ function EmbedButton({ url, total, group }) {
   }
   return (
     <a
-      href={`${url}embed?skupina=${group}`}
+      href={`${url}embed/?skupina=${group}`}
       target="_blank"
       className="share-button"
     >
