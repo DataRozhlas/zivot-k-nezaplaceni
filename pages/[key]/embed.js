@@ -189,9 +189,7 @@ export async function getStaticProps(context) {
       texts: texts,
       chartKey: `${context.params.key}-chart`,
       baseUrl:
-        process.env.NODE_ENV === "production"
-          ? "https://datarozhlas.s3.eu-central-1.amazonaws.com"
-          : "",
+        process.env.NODE_ENV === "production" ? "https://data.irozhlas.cz" : "",
     },
   };
 }
