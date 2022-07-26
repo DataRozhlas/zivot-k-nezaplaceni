@@ -24,12 +24,16 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
       });
     setGroups(currentGroups);
     setSelectedGroups(currentGroups.map(g => g.index));
-    setSrc(`${baseUrl}${router.basePath}/embed/${query.key}/${skupina}`);
+    setSrc(
+      `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}/index.html`
+    );
   }, [skupina]);
 
   useEffect(() => {
     if (selectedGroups.length === groups.length) {
-      setSrc(`${baseUrl}${router.basePath}/embed/${query.key}/${skupina}`);
+      setSrc(
+        `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}/index.html`
+      );
       return;
     }
     const omit = groups
@@ -37,7 +41,7 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
       .map(g => g.index);
     const omitString = `?omit=${omit.toString()}`;
     setSrc(
-      `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}${omitString}`
+      `${baseUrl}${router.basePath}/embed/${query.key}/${skupina}/index.html${omitString}`
     );
   }, [selectedGroups]);
 
