@@ -153,7 +153,6 @@ export async function getStaticProps(context) {
     const icon = icons.icons.filter(icon => icon.label === group.title)[0];
     group.image = icon ? icon.image : icons.defaultImage;
   }
-
   return {
     props: {
       data: data,
