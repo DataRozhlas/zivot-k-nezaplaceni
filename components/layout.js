@@ -51,7 +51,7 @@ export default function Layout(props) {
 
   useEffect(() => {
     if (router.pathname === "/") {
-      router.push("/uspory-procenta");
+      router.push("/posilovaci");
     }
   }, []);
 

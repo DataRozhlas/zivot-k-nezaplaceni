@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002Fprojekt","\u002Fembed\u002F[key]","\u002F[key]","\u002F[key]\u002Fembed","\u002Fembed\u002F[key]\u002F[group]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
