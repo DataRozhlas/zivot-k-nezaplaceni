@@ -275,18 +275,27 @@ function Chart({
     lineStyle: lineStyle,
     pointStyle: { fill: "none", stroke: "gray", strokeWidth: "1px" },
     axes: [getYAxis(dataProps), getXAxis(dataProps, ticks)],
-    hoverAnnotation: [{ type: "x", disable: ["connector", "note"] }],
+    hoverAnnotation: [
+      {
+        type: "x",
+        disable: ["connector", "note"],
+      },
+    ],
     annotations: annotations,
+    optimizeCustomTooltipPosition: true,
     customHoverBehavior: x => (dataProps.onHover ? dataProps.onHover(x) : null),
-    tooltipContent: d => (
-      <SharedTooltip
-        firstWeek={dataProps.firstWeek}
-        week={d.x}
-        lines={tooltipLines}
-        nonpercentage={dataProps.nonpercentage}
-        ticks={dataProps.ticks}
-      />
-    ),
+    tooltipContent: d => {
+      return (
+        <SharedTooltip
+          firstWeek={dataProps.firstWeek}
+          weeks={dataProps.weeks}
+          week={d.x}
+          lines={tooltipLines}
+          nonpercentage={dataProps.nonpercentage}
+          ticks={dataProps.ticks}
+        />
+      );
+    },
   };
   return (
     <div>

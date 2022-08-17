@@ -1,3 +1,5 @@
+import { relativeX } from "semiotic/lib/svg/lineDrawing";
+
 function TooltipItem({ color, value, index }) {
   return (
     <div
@@ -32,9 +34,19 @@ function TooltipItem({ color, value, index }) {
   );
 }
 
-function SharedTooltip({ firstWeek, week, lines, nonpercentage, ticks }) {
+function SharedTooltip({
+  firstWeek,
+  weeks,
+  week,
+  lines,
+  nonpercentage,
+  ticks,
+}) {
   return (
-    <div className="tooltip-content">
+    <div
+      className="tooltip-content"
+      style={weeks === week ? { position: "relative", left: "-110%" } : {}}
+    >
       <div
         key={"header_multi"}
         style={{
