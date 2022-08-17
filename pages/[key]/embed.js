@@ -197,7 +197,9 @@ export async function getStaticProps(context) {
       texts: texts,
       chartKey: `${context.params.key}-chart`,
       baseUrl:
-        process.env.NODE_ENV === "production" ? "https://data.irozhlas.cz" : "",
+        process.env.NODE_ENV === "production"
+          ? "https://data.irozhlas.cz"
+          : "http://localhost:3000",
     },
   };
 }

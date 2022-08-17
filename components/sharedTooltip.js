@@ -47,7 +47,7 @@ function SharedTooltip({
       className="tooltip-content"
       style={
         weeks === week
-          ? { position: "relative", transform: "translateX(-125%)" }
+          ? { position: "relative", transform: "translateX(-130%)" }
           : {}
       }
     >
