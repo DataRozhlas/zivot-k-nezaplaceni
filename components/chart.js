@@ -282,7 +282,7 @@ function Chart({
       },
     ],
     annotations: annotations,
-    optimizeCustomTooltipPosition: true,
+    //optimizeCustomTooltipPosition: true,
     customHoverBehavior: x => (dataProps.onHover ? dataProps.onHover(x) : null),
     tooltipContent: d => {
       return (
