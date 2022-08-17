@@ -45,7 +45,11 @@ function SharedTooltip({
   return (
     <div
       className="tooltip-content"
-      style={weeks === week ? { position: "relative", left: "-110%" } : {}}
+      style={
+        weeks === week
+          ? { position: "relative", transform: "translateX(-125%)" }
+          : {}
+      }
     >
       <div
         key={"header_multi"}
