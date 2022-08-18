@@ -5,6 +5,7 @@ export default async function getAllGroups() {
   const lengths = await Promise.all(
     data.pages.map(async p => {
       const pageData = await getSourceData(`${p.key}.json`);
+      console.log;
       return {
         key: p.key,
         group: pageData.groups.length,
