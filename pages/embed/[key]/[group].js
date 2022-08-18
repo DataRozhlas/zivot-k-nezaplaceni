@@ -115,6 +115,20 @@ const smallEmbed = ({ group, data, texts, chartKey }) => {
           />
         </div>
       )}
+      <p
+        style={{
+          textAlign: "right",
+        }}
+      >
+        Zdroj:{" "}
+        <a
+          href="https://data.irozhlas.cz/zivot"
+          target="_blank"
+          style={{ textDecoration: "underline" }}
+        >
+          Český rozhlas a PAQ Research
+        </a>
+      </p>
     </>
   );
 };
