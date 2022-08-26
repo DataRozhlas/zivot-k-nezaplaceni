@@ -50,9 +50,11 @@ export default function Layout(props) {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.pathname === "/") {
-      router.push("/vydaje-castky");
-    }
+    router.push("https://data.irozhlas.cz/zivot");
+
+    // if (router.pathname === "/") {
+    //   router.push("/vydaje-castky");
+    // }
   }, []);
 
   const menu = props.menuItemsData ? (
