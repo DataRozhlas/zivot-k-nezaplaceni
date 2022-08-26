@@ -8,7 +8,12 @@ module.exports = {
   //   return [
   //     {
   //       source: "/",
-  //       destination: "/ekonomicke-dopady",
+  //       destination: "https://data.irozhlas.cz/zivot/",
+  //       permanent: true,
+  //     },
+  //     {
+  //       source: "/:key",
+  //       destination: "https://data.irozhlas.cz/zivot/:key",
   //       permanent: true,
   //     },
   //   ];
