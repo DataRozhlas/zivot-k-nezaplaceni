@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: tocit/s3-sync-with-cloudfront-invalidation@verze2
+      - uses: tocit/s3-sync-with-cloudfront-invalidation@verze3
         with:
           args: --acl public-read --follow-symlinks --delete
         env:
