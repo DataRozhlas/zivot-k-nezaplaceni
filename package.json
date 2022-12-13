@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "export": "next export -o zivot"
+    "export": "next export -o zivot",
+    "preview": "aws s3 sync out s3://datarozhlas/zivot-nahled --acl public-read --delete && aws cloudfront create-invalidation --distribution-id E3ABKG4QXPTL3P --paths '/zivot-nahled/*'",
+    "production": "aws s3 sync out s3://datarozhlas/zivot --acl public-read --delete && aws cloudfront create-invalidation --distribution-id E3ABKG4QXPTL3P --paths '/zivot/*'"
   },
   "dependencies": {
     "lodash": "^4.17.21",
@@ -14,7 +16,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "semiotic": "1.20.6",
-    "uid": "^2.0.0",
+    "uid": "^2.0.1",
     "uuid": "^8.3.2"
   }
 }

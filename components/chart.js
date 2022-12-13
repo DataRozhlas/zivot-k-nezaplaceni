@@ -8,6 +8,10 @@ const ResponsiveXYFrame = dynamic(
   { ssr: false }
 );
 
+const DividedLine = dynamic(() => import("semiotic/lib/DividedLine"), {
+  ssr: false,
+});
+
 function TickLine({ xy }) {
   return (
     <line
@@ -222,12 +226,14 @@ function Chart({
         return {
           coordinates: l
             .map((v, i) => {
-              return { week: i + dataProps.firstWeek, value: l[i] };
+              return {
+                week: i + dataProps.firstWeek,
+                value: l[i],
+              };
             })
             .filter(c => c.value !== null),
         };
       });
-
   const annotations = generateAnnotations(dataProps, dataLines, stacked);
 
   const lineType = chartType === "stackedarea" ? "area" : undefined;
@@ -242,7 +248,6 @@ function Chart({
       color: dataColors[lineIndex],
     };
   });
-
   const [ticks, setTicks] = useState(2);
   useEffect(() => {
     var chart = document.getElementsByClassName("chart-content")[0];
@@ -271,7 +276,23 @@ function Chart({
     yExtent: [dataProps.yMin, dataProps.yMax],
     xExtent: [dataProps.firstWeek, dataProps.weeks + dataProps.firstWeek - 1],
     lineDataAccessor: "coordinates",
-
+    // customLineMark: ({ d, i, xScale, yScale }) => {
+    //   return (
+    //     <DividedLine
+    //       key={`threshold-${i}`}
+    //       data={[d]}
+    //       parameters={point => {
+    //         console.log(d);
+    //         if (point.week > 2 && point.week < 5) {
+    //           return { stroke: "red", fill: "none" };
+    //         }
+    //         return { stroke: "rgb(77, 67, 12)", fill: "none" };
+    //       }}
+    //       customAccessors={{ x: d => xScale(d.x), y: d => yScale(d.y) }}
+    //       lineDataAccessor={d => d.data}
+    //     />
+    //   );
+    // },
     lineStyle: lineStyle,
     pointStyle: { fill: "none", stroke: "gray", strokeWidth: "1px" },
     axes: [getYAxis(dataProps), getXAxis(dataProps, ticks)],

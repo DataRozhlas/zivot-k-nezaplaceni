@@ -88,11 +88,10 @@ export default function About({ menu }) {
       </p>
       <p>
         Další zdroje na dotazování zbytku výzkumu a tvorbu předchozích výstupů
-        pocházejí zejména z programu Strategie AV21 Akademie věd ČR, v rámci
-        něhož také probíhá zajištění dat pro další výzkumné účely IDEA při
-        CERGE-EI. V minulosti bylo panelové šetření financováno i ze zdrojů
-        Technologické agentury ČR, Max Planck Institute a dalších donorských
-        zdrojů.
+        pocházejí zejména z programu Strategie AV21 Akademie věd ČR a NPO SYRI,
+        která bude podporovat i realizaci některých vln v roce 2023. V minulosti
+        bylo panelové šetření financováno i ze zdrojů Technologické agentury ČR,
+        Max Planck Institute a dalších donorských zdrojů.
       </p>
       <h2>Metodické poznámky</h2>
       <p>
