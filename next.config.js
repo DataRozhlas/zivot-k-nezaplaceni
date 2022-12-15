@@ -1,5 +1,5 @@
 module.exports = {
-  basePath: "/zivot-nahled", //before static deployment, change this to "/zivot"
+  basePath: "/zivot", //before static deployment, change this to "/zivot"
   images: {
     loader: "custom",
   },
