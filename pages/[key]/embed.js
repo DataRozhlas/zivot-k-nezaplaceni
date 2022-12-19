@@ -14,7 +14,7 @@ const EmbedPage = ({ data, texts, chartKey, baseUrl }) => {
       skupina.length > 0 ? `${skupina}/` : ""
     }index.html`
   );
-  const id = `cro-${chartKey}`;
+  const id = `cro-${chartKey}${skupina}`;
   const [groups, setGroups] = useState([]);
   const [selectedGroups, setSelectedGroups] = useState([0]);
 
