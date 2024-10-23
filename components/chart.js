@@ -75,7 +75,7 @@ const shortTick = tick => {
   const date = parseTickToDate(datePart);
   if (date instanceof Date && !isNaN(date.valueOf())) {
     const firstPart = tick.replace(datePart, "");
-    return `${firstPart}${date.getDate()}. ${date.getMonth() + 1}.`;
+    return `${new Intl.DateTimeFormat("cs-CZ", { month: "short", year: "2-digit" }).format(date)}`;
   }
 
   return tick;
@@ -122,9 +122,9 @@ function generateAnnotations(props, dataLines, stacked) {
           x: props.annotation.week,
           y: stacked
             ? dataLines
-                .slice(i)
-                .map(pl => pl[props.annotation.week - props.firstWeek])
-                .reduce((a, b) => a + b, 0)
+              .slice(i)
+              .map(pl => pl[props.annotation.week - props.firstWeek])
+              .reduce((a, b) => a + b, 0)
             : l[props.annotation.week - props.firstWeek],
           value: l[props.annotation.week - props.firstWeek],
         };
@@ -136,9 +136,9 @@ function generateAnnotations(props, dataLines, stacked) {
         x: props.annotation.week,
         y: stacked
           ? dataLines
-              .slice(i)
-              .map(pl => pl[props.annotation.week - props.firstWeek])
-              .reduce((a, b) => a + b, 0)
+            .slice(i)
+            .map(pl => pl[props.annotation.week - props.firstWeek])
+            .reduce((a, b) => a + b, 0)
           : dataLines[i][props.annotation.week - props.firstWeek],
       };
     });
@@ -208,32 +208,32 @@ function Chart({
   const stacked = chartType === "stackedarea";
   const lines = stacked
     ? dataLines.map((l, li) => {
-        return {
-          coordinates: l
-            .map((v, i) => {
-              return {
-                week: i + dataProps.firstWeek,
-                value: dataLines
-                  .slice(li)
-                  .map(pl => pl[i])
-                  .reduce((a, b) => a + b, 0),
-              };
-            })
-            .filter(c => c.value !== null),
-        };
-      })
+      return {
+        coordinates: l
+          .map((v, i) => {
+            return {
+              week: i + dataProps.firstWeek,
+              value: dataLines
+                .slice(li)
+                .map(pl => pl[i])
+                .reduce((a, b) => a + b, 0),
+            };
+          })
+          .filter(c => c.value !== null),
+      };
+    })
     : dataLines.map((l, li) => {
-        return {
-          coordinates: l
-            .map((v, i) => {
-              return {
-                week: i + dataProps.firstWeek,
-                value: l[i],
-              };
-            })
-            .filter(c => c.value !== null),
-        };
-      });
+      return {
+        coordinates: l
+          .map((v, i) => {
+            return {
+              week: i + dataProps.firstWeek,
+              value: l[i],
+            };
+          })
+          .filter(c => c.value !== null),
+      };
+    });
   const annotations = generateAnnotations(dataProps, dataLines, stacked);
 
   const lineType = chartType === "stackedarea" ? "area" : undefined;
@@ -255,7 +255,7 @@ function Chart({
     const averageTickLength =
       dataProps.ticks.map(t => shortTick(t).length).reduce((a, b) => a + b) /
       dataProps.ticks.length;
-    const maxCount = width / (averageTickLength * 5);
+    const maxCount = width / (averageTickLength * 50);
     const ticks = Math.min(dataProps.weeks, Math.round(maxCount));
     setTicks(ticks);
   });
