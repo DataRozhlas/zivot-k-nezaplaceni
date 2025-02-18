@@ -123,8 +123,8 @@ packages:
   bintrees@1.0.2:
     resolution: {integrity: sha512-VOMgTMwjAaUG580SXn3LacVgjurrbMme7ZZNYGSSV7mmtY6QQRh0Eg3pwIcntQ77DErK1L0NxkbetjcoXzVwKw==}
 
-  caniuse-lite@1.0.30001632:
-    resolution: {integrity: sha512-udx3o7yHJfUxMLkGohMlVHCvFvWmirKh9JAH/d7WOLPetlH+LTL5cocMZ0t7oZx/mdlOWXti97xLZWc8uURRHg==}
+  caniuse-lite@1.0.30001699:
+    resolution: {integrity: sha512-b+uH5BakXZ9Do9iK+CkDmctUSEqZl+SP056vc5usa0PL+ev5OHw003rZXcnjNDv3L8P5j6rwT6C0BPKSikW08w==}
 
   commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
@@ -471,7 +471,7 @@ snapshots:
 
   bintrees@1.0.2: {}
 
-  caniuse-lite@1.0.30001632: {}
+  caniuse-lite@1.0.30001699: {}
 
   commander@2.20.3: {}
 
@@ -644,7 +644,7 @@ snapshots:
   next@12.1.5(react-dom@18.0.0(react@18.0.0))(react@18.0.0):
     dependencies:
       '@next/env': 12.1.5
-      caniuse-lite: 1.0.30001632
+      caniuse-lite: 1.0.30001699
       postcss: 8.4.5
       react: 18.0.0
       react-dom: 18.0.0(react@18.0.0)
