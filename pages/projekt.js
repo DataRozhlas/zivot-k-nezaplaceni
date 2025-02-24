@@ -29,7 +29,8 @@ export default function About({ menu }) {
       </p>
       <p>
         Právě to zjišťuje výzkum{" "}
-        <strong>Česko 2022: Život k nezaplacení</strong> od jara 2022 do současnosti. V jeho průběhu postupně ukazujeme i další témata. Například
+        <strong>Česko 2022: Život k nezaplacení</strong> od jara 2022 do současnosti. 
+          V jeho průběhu postupně ukazujeme i další témata. Například
         jak Češi vnímají integraci lidí z Ukrajiny v různých oblastech života nebo
         jak na ně ekonomická situace a nedaleká válka dopadá psychicky.
       </p>
@@ -87,7 +88,7 @@ export default function About({ menu }) {
       <p>
         Další zdroje na dotazování zbytku výzkumu a tvorbu předchozích výstupů
         pocházejí zejména z programu Strategie AV21 Akademie věd ČR a Národního institutu SYRI.
-          Ten se podílí na financování sběru od podzimu 2022 do jara 2025.
+          Ten se podílí na financování sběru dat od podzimu 2022 do jara 2025.
         Národní institut pro výzkum socioekonomických dopadů nemocí a systémových rizik (SYRI) 
           sdružuje přibližně 150 vědců z Masarykovy univerzity, Univerzity Karlovy a Akademie věd ČR. Zkoumá rizika, jako je pandemie covid-19, inflace, 
             dezinformace nebo krize důvěry v instituce, a hledá cesty, jak je zmírňovat.
