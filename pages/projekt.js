@@ -28,15 +28,13 @@ export default function About({ menu }) {
         pomáhat a které si se situací poradí?
       </p>
       <p>
-        Právě to bude zjišťovat výzkum{" "}
-        <strong>Česko 2022: Život k nezaplacení</strong> až do podzimu tohoto
-        roku. V jeho průběhu budeme postupn2 ukazovat i další témata. Například,
-        jak Češi vnímají integraci lidí z Ukrajiny v různých oblastech života,
-        jak na ně ekonomická situace a nedaleká válka dopadá psychicky a zda se
-        chtějí před hrozícím podzimním návratem koronaviru nechat přeočkovat.
+        Právě to zjišťuje výzkum{" "}
+        <strong>Česko 2022: Život k nezaplacení</strong> od jara 2022 do současnosti. V jeho průběhu postupně ukazujeme i další témata. Například
+        jak Češi vnímají integraci lidí z Ukrajiny v různých oblastech života nebo
+        jak na ně ekonomická situace a nedaleká válka dopadá psychicky.
       </p>
       <p>
-        Každý měsíc počínaje květnem 2022 oslovujeme vzorek stejných respondentů
+        Každý měsíc počínaje dubnem 2022 oslovujeme vzorek stejných respondentů
         jako v předešlé studii. Některé časové řady o hospodaření a strategiích
         domácností ovšem popisují situaci domácností již od března 2020.
         Výsledný reprezentativní vzorek se v jednotlivých vlnách pohybuje mezi
@@ -45,7 +43,7 @@ export default function About({ menu }) {
       </p>
       <p>
         Na projektu se podílí výzkumníci ze společnosti PAQ Research (
-        <em>Daniel Prokop</em>, <em>Michaela Kudrnáčová</em>,{" "}
+        <em>Daniel Prokop</em>, <em>Michaela Röschová</em>,{" "}
         <em>Eliška Dvořáková</em>) a datoví experti z Českého rozhlasu. Data
         sbírá agentura NMS (člen SIMAR). Původní studie Život během pandemie a
         analýza výdajů za energie vznikaly ve spolupráci s think-tankem IDEA u
@@ -83,14 +81,17 @@ export default function About({ menu }) {
       <h2>Financování</h2>
       <p>
         Tvorba výstupů projektu <strong>Česko 2022: Život k nezaplacení</strong>{" "}
-        je plně financována Českým rozhlasem, který rovněž financuje část sběru
+        je plně financována Českým rozhlasem, který rovněž financoval část sběru
         a rozšíření o některé otázky zobrazované v dashboardu od května 2022.
       </p>
       <p>
         Další zdroje na dotazování zbytku výzkumu a tvorbu předchozích výstupů
-        pocházejí zejména z programu Strategie AV21 Akademie věd ČR a NPO SYRI,
-        která bude podporovat i realizaci některých vln v roce 2023. V minulosti
-        bylo panelové šetření financováno i ze zdrojů Technologické agentury ČR,
+        pocházejí zejména z programu Strategie AV21 Akademie věd ČR a Národního institutu SYRI.
+          Ten se podílí na financování sběru od podzimu 2022 do jara 2025.
+        Národní institut pro výzkum socioekonomických dopadů nemocí a systémových rizik (SYRI) 
+          sdružuje přibližně 150 vědců z Masarykovy univerzity, Univerzity Karlovy a Akademie věd ČR. Zkoumá rizika, jako je pandemie covid-19, inflace, 
+            dezinformace nebo krize důvěry v instituce, a hledá cesty, jak je zmírňovat.
+        V minulosti bylo panelové šetření financováno i ze zdrojů Technologické agentury ČR,
         Max Planck Institute a dalších donorských zdrojů.
       </p>
       <h2>Metodické poznámky</h2>
