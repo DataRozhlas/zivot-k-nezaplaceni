@@ -94,8 +94,6 @@ ul {
     z-index: 1;
 }
 
-.multiple-charts-wrapper {}
-
 .top-menu {
     display: none;
 }
@@ -267,7 +265,7 @@ line-height: normal;
     font-size: 1.1rem;
 }
 
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 520px) {
     h1 {
         font-size: 1.8rem;
     }
