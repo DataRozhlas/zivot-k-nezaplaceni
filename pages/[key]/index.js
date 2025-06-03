@@ -29,11 +29,11 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
   }, [urlGroup]);
   const title = texts.pageData.title;
   const [openMenu, setOpenMenu] = useState(false);
-  const onTotalChange = v => {
+  const onTotalChange = (v) => {
     setTotal(v);
   };
 
-  const onGroupChange = v => {
+  const onGroupChange = (v) => {
     setGroup(v);
   };
   return (
@@ -57,7 +57,7 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
         <a
           href="#"
           className="arrow-button"
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault();
             setOpenMenu(!openMenu);
           }}
@@ -66,7 +66,10 @@ export default function Page({ data, texts, menu, chartKey, navigation }) {
         </a>
       </p>
 
-      <p dangerouslySetInnerHTML={{ __html: texts.pageData.description }}></p>
+      <p
+        id="perex"
+        dangerouslySetInnerHTML={{ __html: texts.pageData.description }}
+      ></p>
 
       <div style={{ display: "flex", flexDirection: "column" }}>
         {/* <p>Podívejte se na <a href="#stories" className="arrow-button">interpretace↓</a> a <a href="#methodology" className="arrow-button">metodické poznámky↓</a></p> */}
@@ -137,7 +140,7 @@ export async function getStaticProps(context) {
   const structure = await getSourceData("structure.json");
   const icons = await getSourceData("icons.json");
   const currentIndex = structure.pages
-    .map(p => p.key)
+    .map((p) => p.key)
     .indexOf(context.params.key);
   const previous =
     currentIndex > 0
@@ -150,7 +153,7 @@ export async function getStaticProps(context) {
 
   for (let i = 0; i < data.groups.length; i++) {
     const group = data.groups[i];
-    const icon = icons.icons.filter(icon => icon.label === group.title)[0];
+    const icon = icons.icons.filter((icon) => icon.label === group.title)[0];
     group.image = icon ? icon.image : icons.defaultImage;
   }
   return {
@@ -173,7 +176,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const data = await getSourceData("structure.json");
   return {
-    paths: data.pages.map(p => {
+    paths: data.pages.map((p) => {
       return { params: { key: p.key } };
     }),
     fallback: false,
