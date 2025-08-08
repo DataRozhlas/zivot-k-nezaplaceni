@@ -64,54 +64,87 @@ function getYAxis(props) {
 }
 
 const shortTick = (tick) => {
+  // Handle date format like "DD. MM. YYYY"
   const parseTickToDate = (t) => {
     const dateParts = t.split(". ");
-    if (dateParts.length === 3)
-      return new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
-    else return null;
+    if (dateParts.length === 3) {
+      const day = parseInt(dateParts[0]);
+      const month = parseInt(dateParts[1]);
+      const year = parseInt(dateParts[2]);
+      if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+        return new Date(year, month - 1, day);
+      }
+    }
+    return null;
   };
-  const parts = tick.split("–");
-  const datePart = parts[parts.length - 1];
-  const date = parseTickToDate(datePart);
-  if (date instanceof Date && !isNaN(date.valueOf())) {
-    const firstPart = tick.replace(datePart, "");
-    return `${new Intl.DateTimeFormat("cs-CZ", {
-      month: "short",
-      year: "2-digit",
-    }).format(date)}`;
+
+  // If tick contains date-like format, try to parse it
+  if (tick.includes("–")) {
+    const parts = tick.split("–");
+    const datePart = parts[parts.length - 1];
+    const date = parseTickToDate(datePart);
+    if (date instanceof Date && !isNaN(date.valueOf())) {
+      return new Intl.DateTimeFormat("cs-CZ", {
+        month: "short",
+        year: "numeric",
+      }).format(date);
+    }
   }
 
+  // For simple date format like "DD. MM. YYYY"
+  const date = parseTickToDate(tick);
+  if (date instanceof Date && !isNaN(date.valueOf())) {
+    return new Intl.DateTimeFormat("cs-CZ", {
+      month: "short",
+      year: "numeric",
+    }).format(date);
+  }
+
+  // For simple numeric ticks or other formats, return as is
   return tick;
 };
 
 function getXAxis(props, ticks) {
-  var mod;
-  for (mod = 1; mod < 100; mod++) {
-    if (props.weeks / mod <= ticks) {
-      break;
-    }
+  console.log("getXAxis called with:", { props, ticks });
+
+  // Create evenly distributed tick values between first and last
+  const tickValues = [];
+  const firstWeek = props.firstWeek;
+  const lastWeek = props.firstWeek + props.ticks.length - 1;
+  const range = lastWeek - firstWeek;
+
+  // Use a fixed number of ticks that works well for most ranges
+  const totalTicks = 12;
+
+  // Calculate exact positions without rounding
+  for (let i = 0; i < totalTicks; i++) {
+    // Use exact fractional positioning
+    const exactPosition = firstWeek + (i * range) / (totalTicks - 1);
+    tickValues.push(exactPosition);
   }
 
-  const maxCount = props.ticks.length / mod;
-  const getTickValue = (e) => {
-    const index = e - props.firstWeek;
-    const isFirst = index === 0;
-    const isLast = index === props.ticks.length - 1;
-    if (ticks === 0) {
-      return isFirst || isLast ? `${shortTick(props.ticks[index])}` : null;
-    }
-
-    const isModth = index % mod === 0;
-    const isInLimit = index / mod + 1 <= maxCount;
-    return (isModth && isInLimit) || isLast
-      ? `${shortTick(props.ticks[index])}`
-      : null;
-  };
   return {
     orient: "bottom",
     showOutboundTickLines: true,
-    ticks: props.weeks > 30 ? props.weeks / 4 : props.weeks,
-    tickFormat: getTickValue,
+    tickValues: tickValues,
+    tickFormat: (d) => {
+      const index = d - props.firstWeek;
+      if (index < 0 || index >= props.ticks.length) {
+        return "";
+      }
+
+      // Only show first and last labels
+      const isFirst = index === 0;
+      const isLast = index === props.ticks.length - 1;
+
+      const shouldShowLabel = isFirst || isLast;
+      const result = shouldShowLabel ? shortTick(props.ticks[index]) : "";
+
+      console.log(
+        `Tick ${index}: "${props.ticks[index]}" -> "${result}" (show: ${shouldShowLabel})`
+      );
+      return result;
+    },
     tickLineGenerator: ({ xy }) => <TickLine xy={xy} key={uuidv4()} />,
   };
 }
@@ -251,16 +284,29 @@ function Chart({
       color: dataColors[lineIndex],
     };
   });
-  const [ticks, setTicks] = useState(2);
+  const [ticks, setTicks] = useState(5); // Default to 5 ticks
   useEffect(() => {
     var chart = document.getElementsByClassName("chart-content")[0];
+    if (!chart) return;
+
     const width = chart.offsetWidth;
-    const averageTickLength =
-      dataProps.ticks.map((t) => shortTick(t).length).reduce((a, b) => a + b) /
-      dataProps.ticks.length;
-    const maxCount = width / (averageTickLength * 50);
-    const ticks = Math.min(dataProps.weeks, Math.round(maxCount));
-    setTicks(ticks);
+    if (width === 0) return;
+
+    // Simple calculation: show more ticks for wider charts
+    let calculatedTicks;
+    if (width < 400) {
+      calculatedTicks = 3;
+    } else if (width < 600) {
+      calculatedTicks = 5;
+    } else if (width < 800) {
+      calculatedTicks = 7;
+    } else {
+      calculatedTicks = 10;
+    }
+
+    // Ensure we don't exceed the number of available data points
+    const maxTicks = Math.min(calculatedTicks, dataProps.weeks);
+    setTicks(Math.max(2, maxTicks)); // Always show at least 2 ticks
   });
   const frameProps = {
     lines: lines,
@@ -285,7 +331,6 @@ function Chart({
     //       key={`threshold-${i}`}
     //       data={[d]}
     //       parameters={point => {
-    //         console.log(d);
     //         if (point.week > 2 && point.week < 5) {
     //           return { stroke: "red", fill: "none" };
     //         }
