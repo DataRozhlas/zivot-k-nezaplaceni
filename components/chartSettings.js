@@ -41,7 +41,7 @@ function Tab({ title, onClick, isActive }) {
     <li className={"tab" + (isActive ? " tab-active" : "")}>
       <a
         href="#"
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault();
           onClick();
         }}
@@ -61,7 +61,7 @@ function GroupButtons({ groups, onGroupChange, group }) {
           currentGroup={group}
           group={g}
           index={i}
-          onChange={_ => onGroupChange(i)}
+          onChange={(_) => onGroupChange(i)}
         />
       ))}
     </div>
@@ -85,7 +85,7 @@ function GroupDropdown({ groups, onGroupChange, group }) {
     return (
       <a
         style={itemStyle}
-        onClick={e => {
+        onClick={(e) => {
           onGroupChange(index);
           setOpen(false);
         }}
@@ -115,7 +115,7 @@ function GroupDropdown({ groups, onGroupChange, group }) {
           margin: "1em 0",
         }}
       >
-        <button style={itemStyle} onClick={e => setOpen(!open)}>
+        <button style={itemStyle} onClick={(e) => setOpen(!open)}>
           <img
             src={`../category-images/${selectedGroup.image}`}
             width="54"
@@ -224,13 +224,13 @@ function Filter({ label, index, onChange, checked }) {
 function Filters({ filters, currentFilter, onFilterChange }) {
   return (
     <div className="filters">
-      Zobraz aktivity typu
+      Zobraz
       {filters.map((f, i) => (
         <Filter
           checked={i === currentFilter}
           label={f.label}
           index={i}
-          onChange={_ => onFilterChange(i)}
+          onChange={(_) => onFilterChange(i)}
           key={i}
         />
       ))}

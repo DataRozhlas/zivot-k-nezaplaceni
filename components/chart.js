@@ -314,7 +314,7 @@ function Chart({
     margin: {
       left: dataProps.yLabel ? 65 : 55,
       bottom: 50,
-      right: 45,
+      right: 48,
       top: 10,
     },
 
